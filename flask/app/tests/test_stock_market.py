@@ -3,7 +3,7 @@ import json
 from app import app, db
 from models import Stock, Market
 
-class StockMarketAPITestCase(unittest.TestCase):
+class TestStockMarketAPI(unittest.TestCase):
     
     @classmethod
     def setUpClass(cls):
