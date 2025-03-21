@@ -1,16 +1,16 @@
-version: '3.9'
+
 
 services:
   web:
     build: .
     ports:
-      - "5002:5000"
+      - "5000:5000"
     environment:
-      - SQLALCHEMY_DATABASE_URI=postgresql://postgres:postgres@10.12.40.23:5432/postgres
+      - SQLALCHEMY_DATABASE_URI=postgresql://postgres:postgres@db:5432/flaskdb
     depends_on:
       - db
-      - test-db 
-    
+    volumes:
+      - ./logs:/app/logs  
 
   db:
     image: postgres:latest
@@ -21,15 +21,5 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  test-db:
-    image: postgres:latest
-    environment:
-      POSTGRES_USER: test_user
-      POSTGRES_PASSWORD: test_pass
-      POSTGRES_DB: testdb
-    volumes:
-      - test_postgres_data:/var/lib/postgresql/data
-
 volumes:
   postgres_data:
-  test_postgres_data: 
