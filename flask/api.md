@@ -152,7 +152,7 @@ docker-compose down
 
 ---
 ## **Contributors**
-- **Developer:** Harsh 🚀
+- **Developer:** Alfiya, Anshika, Rajdeep, Gursheen, Kritika
 
 For any issues, contact: `support@stockapi.com`
 
