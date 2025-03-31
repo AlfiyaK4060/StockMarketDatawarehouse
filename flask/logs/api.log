@@ -1,0 +1,22 @@
+2025-03-25 20:11:35,492 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-03-25 20:11:35,495 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-25 20:11:58,194 - INFO - 172.18.0.1 - - [25/Mar/2025 20:11:58] "GET /api/market HTTP/1.1" 200 -
+2025-03-25 20:16:47,508 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-03-25 20:16:47,514 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-25 20:17:28,634 - INFO - 172.18.0.1 - - [25/Mar/2025 20:17:28] "GET /api/market HTTP/1.1" 200 -
+2025-03-31 04:05:08,280 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-03-31 04:05:08,289 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-31 04:17:50,024 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-03-31 04:17:50,029 - INFO - [33mPress CTRL+C to quit[0m

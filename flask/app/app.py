@@ -133,7 +133,7 @@ def get_schema():
         print(traceback.format_exc(), file=sys.stderr)
         return jsonify({"error": str(e)}), 500
 
-
+# GET DIM DATE
 @app.route('/api/dim_date', methods=['GET'])
 def get_dim_date():
     start_time = time.time()
@@ -544,14 +544,8 @@ def get_single_stock_ml_data():
         }), 500
 
 # Run the app
-if _name_ == '_main_':
-    print("Running tests before starting server...", file=sys.stderr)
-    
-    exit_code = pytest.main(["-v", "test_stock.py"]) 
-    if exit_code != 0:
-        print("❌ Tests failed. Server will not start.", file=sys.stderr)
-        exit(exit_code)
-    
-    print("✅ Tests passed. Starting Flask server...", file=sys.stderr)
+if __name__ == "__main__":
+    print("Starting Flask server...", file=sys.stderr)
     app.run(host='0.0.0.0', port=5000, debug=False)
+
 
