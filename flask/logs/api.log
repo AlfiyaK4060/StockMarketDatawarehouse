@@ -20,3 +20,39 @@
  * Running on http://127.0.0.1:5000
  * Running on http://172.18.0.3:5000
 2025-03-31 04:17:50,029 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-05 02:10:27,122 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-04-05 02:10:27,129 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-05 02:11:11,714 - INFO - 172.18.0.1 - - [05/Apr/2025 02:11:11] "GET / HTTP/1.1" 200 -
+2025-04-06 05:06:41,981 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-04-06 05:06:41,985 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-06 05:09:21,183 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-04-06 05:09:21,184 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-06 05:37:31,679 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-04-06 05:37:31,681 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-06 05:44:12,594 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-04-06 05:44:12,597 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-06 05:48:26,735 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-04-06 05:48:26,736 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-06 06:13:47,149 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-04-06 06:13:47,155 - INFO - [33mPress CTRL+C to quit[0m

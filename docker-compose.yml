@@ -1,8 +1,9 @@
-
+version: "3.8"
 
 services:
   web:
-    build: .
+    build:
+      context: ./flask
     ports:
       - "5000:5000"
     environment:
@@ -10,7 +11,22 @@ services:
     depends_on:
       - db
     volumes:
-      - ./logs:/app/logs  
+      - ./flask/logs:/app/logs
+
+  react:
+    build:
+      context: ./ReactJS
+    ports:
+      - "3000:3000"
+    working_dir: /app
+    command: ["npm", "start"]
+    volumes:
+      - ./ReactJS:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
+    depends_on:
+      - web
 
   db:
     image: postgres:latest

@@ -4,6 +4,6 @@ Flask-Migrate==4.0.5
 SQLAlchemy==2.0.25
 psycopg2-binary==2.9.9
 pytest
-
+flask-cors
 
 gunicorn==21.2.0  # If deploying on a server

@@ -2,6 +2,25 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+class DimExchange(db.Model):
+    __tablename__ = "dim_exchange"
+    sk_exchange_id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    symbol = db.Column(db.String(20))
+    opening_hour = db.Column(db.Time)  # or db.Column(db.String(...)) as needed
+    closing_hour = db.Column(db.Time)  # or db.Column(db.String(...)) as needed
+    timezone = db.Column(db.String(50))
+
+class DimCommodity(db.Model):
+    __tablename__ = "dim_commodity"
+    sk_commodity_id = db.Column(db.Integer, primary_key=True)
+    symbol = db.Column(db.String(20))
+    name = db.Column(db.String(100))
+    currency = db.Column(db.String(10))
+    exchange = db.Column(db.String(50))
+    # Add other relevant fields
+    
+    
 class DimDate(db.Model):
     __tablename__ = "dim_date"
     sk_date_id = db.Column(db.Integer, primary_key=True)
@@ -77,3 +96,11 @@ class FactMarketMetrics(db.Model):
     eps = db.Column(db.Numeric)
     pe = db.Column(db.Numeric)
     shares_outstanding = db.Column(db.BigInteger)
+
+
+class DimBond(db.Model):
+    __tablename__ = "dim_bond"
+    sk_bond_id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    symbol = db.Column(db.String(20))
+    # Add more fields as needed

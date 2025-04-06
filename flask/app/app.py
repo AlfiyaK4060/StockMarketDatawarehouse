@@ -9,16 +9,19 @@ import time
 import logging
 from datetime import datetime, timedelta
 from sqlalchemy.exc import SQLAlchemyError
-from models import db, DimDate, DimCompany, FactMarketMetrics
+from models import db, DimDate, DimCompany, FactMarketMetrics, DimExchange, DimCommodity , DimBond
 import pytest
-# Import models
-from models import db, DimDate, DimCompany, FactMarketMetrics
+from flask_cors import CORS
 
-# Print startup message for debugging
+
+
 print("Starting Flask application...", file=sys.stderr)
 
 # Initialize Flask app
+from flask_cors import CORS
+
 app = Flask(__name__)
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 # Database configuration - use SQLite as fallback
 database_url = os.environ.get('SQLALCHEMY_DATABASE_URI', 'sqlite:///app.db')
@@ -52,8 +55,17 @@ def home():
         "message": "Welcome to Stock Market API",
         "database_status": db_status,
         "endpoints": {
+            "tables": "/api/tables",
             "market_data": "/api/market",
             "stock_data": "/api/stock/<ticker>"
+            ,
+            "dim_date": "/api/dim_date",
+            "dim_exchange": "/api/dim_exchange",
+            "dim_commodity": "/api/dim_commodity",
+            "dim_company": "/api/dim_company",
+            "schema": "/api/schema",    
+        
+            "ml_model": "/api/ml-model",
         }
     })
 
@@ -138,7 +150,7 @@ def get_schema():
 def get_dim_date():
     start_time = time.time()
     try:
-        results = DimDate.query.all()
+        results = DimDate.query.limit(100)
         record_count = len(results)
 
         formatted_results = [{"date": row.date, "datetime": row.datetime.isoformat() if row.datetime else None} for row in results]
@@ -182,43 +194,38 @@ def get_dim_exchange():
 def get_dim_commodity():
     start_time = time.time()
     try:
-        days = request.args.get('days', '60')
-        to_date = request.args.get('to', datetime.now().strftime('%Y-%m-%d'))
-        from_date = request.args.get('from', None)
-        country = request.args.get('country', 'US')
-        ticker = request.args.get('ticker', None)
-
-        # Convert date formats
-        try:
-            to_datetime = datetime.strptime(to_date, '%Y-%m-%d')
-        except ValueError:
-            to_datetime = datetime.now()
-
-        if from_date is None:
-            from_datetime = to_datetime - timedelta(days=int(days)) if days.lower() != 'all' else datetime(1900, 1, 1)
-        else:
-            from_datetime = datetime.strptime(from_date, '%Y-%m-%d')
-
-        # Query commodities
-        query = DimCommodity.query.filter(DimCommodity.exchange == country)
-        if ticker:
-            query = query.filter(DimCommodity.symbol == ticker)
-
-        results = query.all()
+        # Fetch all commodities without filtering
+        results = DimCommodity.query.all()
         record_count = len(results)
 
-        formatted_results = [{"symbol": row.symbol, "name": row.name, "currency": row.currency, "exchange": row.exchange} for row in results]
+        formatted_results = [
+            {
+                "symbol": row.symbol,
+                "name": row.name,
+                "currency": row.currency,
+                "exchange": row.exchange
+            }
+            for row in results
+        ]
 
         execution_time = time.time() - start_time
         log_request("/api/dim_commodity", record_count, execution_time)
 
-        return jsonify({"data": formatted_results, "metadata": {"record_count": record_count, "execution_time_seconds": round(execution_time, 4)}})
+        return jsonify({
+            "data": formatted_results,
+            "metadata": {
+                "record_count": record_count,
+                "execution_time_seconds": round(execution_time, 4)
+            }
+        })
 
     except SQLAlchemyError as e:
         execution_time = time.time() - start_time
         logging.error(f"ERROR: /api/dim_commodity | Exception: {e} | Execution Time: {execution_time:.4f} seconds")
-        return jsonify({"error": str(e), "metadata": {"execution_time_seconds": execution_time}}), 500
-
+        return jsonify({
+            "error": str(e),
+            "metadata": {"execution_time_seconds": round(execution_time, 4)}
+        }), 500
 # =============================
 # 4️⃣ GET DIM COMPANY
 # =============================
@@ -440,6 +447,43 @@ def get_ml_model_data():
             'metadata': {'execution_time_seconds': execution_time}
         }), 500
 
+# GET DIM BOND
+@app.route('/api/dim_bond', methods=['GET'])
+def get_dim_bond():
+    start_time = time.time()
+    try:
+        results = DimBond.query.all()
+        record_count = len(results)
+
+        formatted_results = [
+            {
+                "bond_id": row.sk_bond_id,   # Adjust field names as defined in your DimBond model
+                "name": row.name,
+                "symbol": row.symbol,
+                # Add additional fields as needed
+            }
+            for row in results
+        ]
+
+        execution_time = time.time() - start_time
+        log_request("/api/dim_bond", record_count, execution_time)
+
+        return jsonify({
+            "data": formatted_results,
+            "metadata": {
+                "record_count": record_count,
+                "execution_time_seconds": round(execution_time, 4)
+            }
+        })
+
+    except SQLAlchemyError as e:
+        execution_time = time.time() - start_time
+        logging.error(f"ERROR: /api/dim_bond | Exception: {e} | Execution Time: {execution_time:.4f} seconds")
+        return jsonify({
+            "error": str(e),
+            "metadata": {"execution_time_seconds": round(execution_time, 4)}
+        }), 500
+
 
 @app.route('/api/ml-model/stock', methods=['GET'])
 def get_single_stock_ml_data():
@@ -549,3 +593,4 @@ if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=False)
 
 
+# The above code is importing the logging module in Python. This module provides a flexible framework for emitting log messages from Python programs. It can be used to record diagnostic information and status messages.
