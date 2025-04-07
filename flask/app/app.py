@@ -460,20 +460,24 @@ def get_ml_model_data():
             'metadata': {'execution_time_seconds': execution_time}
         }), 500
 
-# GET DIM BOND
+# GET DIM BOND# filepath: /Users/harshsaw/Downloads/StockMarketDatawarehouse/flask/app/app.py
+# filepath: /Users/harshsaw/Downloads/StockMarketDatawarehouse/flask/app/app.py
 @app.route('/api/dim_bond', methods=['GET'])
 def get_dim_bond():
     start_time = time.time()
     try:
-        results = DimBond.query.all()
+        # Query the correct columns from the dim_bond table
+        results = DimBond.query.with_entities(
+            DimBond.sk_bond_id,
+            DimBond.treasury_name  # Use treasury_name as defined in the model
+        ).all()
         record_count = len(results)
 
+        # Format the results
         formatted_results = [
             {
-                "bond_id": row.sk_bond_id,   # Adjust field names as defined in your DimBond model
-                "name": row.name,
-                "symbol": row.symbol,
-                # Add additional fields as needed
+                "sk_bond_id": row.sk_bond_id,
+                "treasury_name": row.treasury_name
             }
             for row in results
         ]
@@ -494,10 +498,9 @@ def get_dim_bond():
         logging.error(f"ERROR: /api/dim_bond | Exception: {e} | Execution Time: {execution_time:.4f} seconds")
         return jsonify({
             "error": str(e),
-            "metadata": {"execution_time_seconds": round(execution_time, 4)}
+            "metadata": {"execution_time_seconds": execution_time}
         }), 500
-
-
+        
 @app.route('/api/ml-model/stock', methods=['GET'])
 def get_single_stock_ml_data():
     start_time = time.time()  # Start tracking execution time

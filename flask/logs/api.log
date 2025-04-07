@@ -368,3 +368,142 @@ FROM dim_bond]
 2025-04-07 20:35:19,221 - INFO - 192.168.65.1 - - [07/Apr/2025 20:35:19] "[33mGET /api/tables HTTP/1.1[0m" 404 -
 2025-04-07 20:35:22,451 - INFO - 192.168.65.1 - - [07/Apr/2025 20:35:22] "[33mGET /api/tables HTTP/1.1[0m" 404 -
 2025-04-07 20:35:23,117 - INFO - 192.168.65.1 - - [07/Apr/2025 20:35:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-07 20:43:46,591 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-04-07 20:43:46,597 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-07 20:44:59,405 - INFO - 172.18.0.1 - - [07/Apr/2025 20:44:59] "GET / HTTP/1.1" 200 -
+2025-04-07 20:45:10,879 - ERROR - ERROR: /api/dim_date | Exception: (psycopg2.errors.UndefinedTable) relation "dim_date" does not exist
+LINE 2: FROM dim_date 
+             ^
+
+[SQL: SELECT dim_date.sk_date_id AS dim_date_sk_date_id, dim_date.datetime AS dim_date_datetime, dim_date.date AS dim_date_date, dim_date.hour AS dim_date_hour, dim_date.day_of_week AS dim_date_day_of_week, dim_date.day_name AS dim_date_day_name, dim_date.day_of_month AS dim_date_day_of_month, dim_date.day_of_year AS dim_date_day_of_year, dim_date.week_of_year AS dim_date_week_of_year, dim_date.month AS dim_date_month, dim_date.month_name AS dim_date_month_name, dim_date.quarter AS dim_date_quarter, dim_date.year AS dim_date_year, dim_date.fiscal_year AS dim_date_fiscal_year, dim_date.is_weekend AS dim_date_is_weekend 
+FROM dim_date 
+ LIMIT %(param_1)s]
+[parameters: {'param_1': 100}]
+(Background on this error at: https://sqlalche.me/e/20/f405) | Execution Time: 0.0152 seconds
+2025-04-07 20:45:10,882 - INFO - 172.18.0.1 - - [07/Apr/2025 20:45:10] "[35m[1mGET /api/dim_date HTTP/1.1[0m" 500 -
+2025-04-07 20:50:33,330 - ERROR - Error fetching data for AAPL: (psycopg2.errors.UndefinedTable) relation "fact_market_metrics" does not exist
+LINE 2: FROM fact_market_metrics JOIN dim_date ON fact_market_metric...
+             ^
+
+[SQL: SELECT fact_market_metrics.sk_market_metrics_id AS fact_market_metrics_sk_market_metrics_id, fact_market_metrics.fk_company_id AS fact_market_metrics_fk_company_id, fact_market_metrics.fk_date_id AS fact_market_metrics_fk_date_id, fact_market_metrics.fk_exchange_id AS fact_market_metrics_fk_exchange_id, fact_market_metrics.fk_commodity_id AS fact_market_metrics_fk_commodity_id, fact_market_metrics.fk_index_id AS fact_market_metrics_fk_index_id, fact_market_metrics.fk_stock_id AS fact_market_metrics_fk_stock_id, fact_market_metrics.fk_bond_id AS fact_market_metrics_fk_bond_id, fact_market_metrics.current_price AS fact_market_metrics_current_price, fact_market_metrics.change_percentage AS fact_market_metrics_change_percentage, fact_market_metrics.change AS fact_market_metrics_change, fact_market_metrics.day_low AS fact_market_metrics_day_low, fact_market_metrics.day_high AS fact_market_metrics_day_high, fact_market_metrics.year_high AS fact_market_metrics_year_high, fact_market_metrics.year_low AS fact_market_metrics_year_low, fact_market_metrics.market_cap AS fact_market_metrics_market_cap, fact_market_metrics.price_average_50 AS fact_market_metrics_price_average_50, fact_market_metrics.price_average_200 AS fact_market_metrics_price_average_200, fact_market_metrics.volume AS fact_market_metrics_volume, fact_market_metrics.average_volume AS fact_market_metrics_average_volume, fact_market_metrics.opening_price AS fact_market_metrics_opening_price, fact_market_metrics.previous_close AS fact_market_metrics_previous_close, fact_market_metrics.eps AS fact_market_metrics_eps, fact_market_metrics.pe AS fact_market_metrics_pe, fact_market_metrics.shares_outstanding AS fact_market_metrics_shares_outstanding, dim_date.sk_date_id AS dim_date_sk_date_id, dim_date.datetime AS dim_date_datetime, dim_date.date AS dim_date_date, dim_date.hour AS dim_date_hour, dim_date.day_of_week AS dim_date_day_of_week, dim_date.day_name AS dim_date_day_name, dim_date.day_of_month AS dim_date_day_of_month, dim_date.day_of_year AS dim_date_day_of_year, dim_date.week_of_year AS dim_date_week_of_year, dim_date.month AS dim_date_month, dim_date.month_name AS dim_date_month_name, dim_date.quarter AS dim_date_quarter, dim_date.year AS dim_date_year, dim_date.fiscal_year AS dim_date_fiscal_year, dim_date.is_weekend AS dim_date_is_weekend, dim_company.sk_company_id AS dim_company_sk_company_id, dim_company.symbol AS dim_company_symbol, dim_company.beta AS dim_company_beta, dim_company.vol_avg AS dim_company_vol_avg, dim_company.mkt_cap AS dim_company_mkt_cap, dim_company.last_div AS dim_company_last_div, dim_company.range AS dim_company_range, dim_company.changes AS dim_company_changes, dim_company.company_name AS dim_company_company_name, dim_company.currency AS dim_company_currency, dim_company.cik AS dim_company_cik, dim_company.isin AS dim_company_isin, dim_company.cusip AS dim_company_cusip, dim_company.industry AS dim_company_industry, dim_company.sector AS dim_company_sector, dim_company.country AS dim_company_country, dim_company.full_time_employees AS dim_company_full_time_employees, dim_company.city AS dim_company_city, dim_company.state AS dim_company_state, dim_company.ipo_date AS dim_company_ipo_date, dim_company.is_actively_trading AS dim_company_is_actively_trading, dim_company.pe_ratio_ttm AS dim_company_pe_ratio_ttm, dim_company.price_to_book_ratio_ttm AS dim_company_price_to_book_ratio_ttm, dim_company.debt_to_equity_ratio_ttm AS dim_company_debt_to_equity_ratio_ttm, dim_company.peg_ratio_ttm AS dim_company_peg_ratio_ttm, dim_company.return_on_equity_ttm AS dim_company_return_on_equity_ttm, dim_company.annual_free_cash_flow AS dim_company_annual_free_cash_flow 
+FROM fact_market_metrics JOIN dim_date ON fact_market_metrics.fk_date_id = dim_date.sk_date_id JOIN dim_company ON fact_market_metrics.fk_company_id = dim_company.sk_company_id 
+WHERE dim_company.symbol = %(symbol_1)s AND dim_date.datetime BETWEEN %(datetime_1)s AND %(datetime_2)s ORDER BY dim_date.datetime]
+[parameters: {'symbol_1': 'AAPL', 'datetime_1': datetime.datetime(2025, 2, 6, 0, 0), 'datetime_2': datetime.datetime(2025, 4, 7, 0, 0)}]
+(Background on this error at: https://sqlalche.me/e/20/f405) | Execution Time: 0.0330 seconds
+2025-04-07 20:50:33,382 - INFO - 172.18.0.1 - - [07/Apr/2025 20:50:33] "[35m[1mGET /api/ml-model/stock?ticker=AAPL HTTP/1.1[0m" 500 -
+2025-04-07 20:50:36,051 - INFO - 172.18.0.1 - - [07/Apr/2025 20:50:36] "[35m[1mGET /api/market HTTP/1.1[0m" 500 -
+2025-04-07 20:50:39,111 - ERROR - ERROR: /api/dim_date | Exception: (psycopg2.errors.UndefinedTable) relation "dim_date" does not exist
+LINE 2: FROM dim_date 
+             ^
+
+[SQL: SELECT dim_date.sk_date_id AS dim_date_sk_date_id, dim_date.datetime AS dim_date_datetime, dim_date.date AS dim_date_date, dim_date.hour AS dim_date_hour, dim_date.day_of_week AS dim_date_day_of_week, dim_date.day_name AS dim_date_day_name, dim_date.day_of_month AS dim_date_day_of_month, dim_date.day_of_year AS dim_date_day_of_year, dim_date.week_of_year AS dim_date_week_of_year, dim_date.month AS dim_date_month, dim_date.month_name AS dim_date_month_name, dim_date.quarter AS dim_date_quarter, dim_date.year AS dim_date_year, dim_date.fiscal_year AS dim_date_fiscal_year, dim_date.is_weekend AS dim_date_is_weekend 
+FROM dim_date 
+ LIMIT %(param_1)s]
+[parameters: {'param_1': 100}]
+(Background on this error at: https://sqlalche.me/e/20/f405) | Execution Time: 0.0015 seconds
+2025-04-07 20:50:39,113 - INFO - 172.18.0.1 - - [07/Apr/2025 20:50:39] "[35m[1mGET /api/dim_date HTTP/1.1[0m" 500 -
+2025-04-07 20:50:42,042 - ERROR - ERROR: /api/dim_exchange | Exception: (psycopg2.errors.UndefinedTable) relation "dim_exchange" does not exist
+LINE 2: FROM dim_exchange
+             ^
+
+[SQL: SELECT dim_exchange.sk_exchange_id AS dim_exchange_sk_exchange_id, dim_exchange.name AS dim_exchange_name, dim_exchange.symbol AS dim_exchange_symbol, dim_exchange.opening_hour AS dim_exchange_opening_hour, dim_exchange.closing_hour AS dim_exchange_closing_hour, dim_exchange.timezone AS dim_exchange_timezone 
+FROM dim_exchange]
+(Background on this error at: https://sqlalche.me/e/20/f405) | Execution Time: 0.0103 seconds
+2025-04-07 20:50:42,044 - INFO - 172.18.0.1 - - [07/Apr/2025 20:50:42] "[35m[1mGET /api/dim_exchange HTTP/1.1[0m" 500 -
+2025-04-07 20:50:48,058 - ERROR - ERROR: /api/ml-model | Country: US | Exception: (psycopg2.errors.UndefinedTable) relation "fact_market_metrics" does not exist
+LINE 2: FROM fact_market_metrics JOIN dim_date ON fact_market_metric...
+             ^
+
+[SQL: SELECT fact_market_metrics.sk_market_metrics_id AS fact_market_metrics_sk_market_metrics_id, fact_market_metrics.fk_company_id AS fact_market_metrics_fk_company_id, fact_market_metrics.fk_date_id AS fact_market_metrics_fk_date_id, fact_market_metrics.fk_exchange_id AS fact_market_metrics_fk_exchange_id, fact_market_metrics.fk_commodity_id AS fact_market_metrics_fk_commodity_id, fact_market_metrics.fk_index_id AS fact_market_metrics_fk_index_id, fact_market_metrics.fk_stock_id AS fact_market_metrics_fk_stock_id, fact_market_metrics.fk_bond_id AS fact_market_metrics_fk_bond_id, fact_market_metrics.current_price AS fact_market_metrics_current_price, fact_market_metrics.change_percentage AS fact_market_metrics_change_percentage, fact_market_metrics.change AS fact_market_metrics_change, fact_market_metrics.day_low AS fact_market_metrics_day_low, fact_market_metrics.day_high AS fact_market_metrics_day_high, fact_market_metrics.year_high AS fact_market_metrics_year_high, fact_market_metrics.year_low AS fact_market_metrics_year_low, fact_market_metrics.market_cap AS fact_market_metrics_market_cap, fact_market_metrics.price_average_50 AS fact_market_metrics_price_average_50, fact_market_metrics.price_average_200 AS fact_market_metrics_price_average_200, fact_market_metrics.volume AS fact_market_metrics_volume, fact_market_metrics.average_volume AS fact_market_metrics_average_volume, fact_market_metrics.opening_price AS fact_market_metrics_opening_price, fact_market_metrics.previous_close AS fact_market_metrics_previous_close, fact_market_metrics.eps AS fact_market_metrics_eps, fact_market_metrics.pe AS fact_market_metrics_pe, fact_market_metrics.shares_outstanding AS fact_market_metrics_shares_outstanding, dim_date.sk_date_id AS dim_date_sk_date_id, dim_date.datetime AS dim_date_datetime, dim_date.date AS dim_date_date, dim_date.hour AS dim_date_hour, dim_date.day_of_week AS dim_date_day_of_week, dim_date.day_name AS dim_date_day_name, dim_date.day_of_month AS dim_date_day_of_month, dim_date.day_of_year AS dim_date_day_of_year, dim_date.week_of_year AS dim_date_week_of_year, dim_date.month AS dim_date_month, dim_date.month_name AS dim_date_month_name, dim_date.quarter AS dim_date_quarter, dim_date.year AS dim_date_year, dim_date.fiscal_year AS dim_date_fiscal_year, dim_date.is_weekend AS dim_date_is_weekend, dim_company.sk_company_id AS dim_company_sk_company_id, dim_company.symbol AS dim_company_symbol, dim_company.beta AS dim_company_beta, dim_company.vol_avg AS dim_company_vol_avg, dim_company.mkt_cap AS dim_company_mkt_cap, dim_company.last_div AS dim_company_last_div, dim_company.range AS dim_company_range, dim_company.changes AS dim_company_changes, dim_company.company_name AS dim_company_company_name, dim_company.currency AS dim_company_currency, dim_company.cik AS dim_company_cik, dim_company.isin AS dim_company_isin, dim_company.cusip AS dim_company_cusip, dim_company.industry AS dim_company_industry, dim_company.sector AS dim_company_sector, dim_company.country AS dim_company_country, dim_company.full_time_employees AS dim_company_full_time_employees, dim_company.city AS dim_company_city, dim_company.state AS dim_company_state, dim_company.ipo_date AS dim_company_ipo_date, dim_company.is_actively_trading AS dim_company_is_actively_trading, dim_company.pe_ratio_ttm AS dim_company_pe_ratio_ttm, dim_company.price_to_book_ratio_ttm AS dim_company_price_to_book_ratio_ttm, dim_company.debt_to_equity_ratio_ttm AS dim_company_debt_to_equity_ratio_ttm, dim_company.peg_ratio_ttm AS dim_company_peg_ratio_ttm, dim_company.return_on_equity_ttm AS dim_company_return_on_equity_ttm, dim_company.annual_free_cash_flow AS dim_company_annual_free_cash_flow 
+FROM fact_market_metrics JOIN dim_date ON fact_market_metrics.fk_date_id = dim_date.sk_date_id JOIN dim_company ON fact_market_metrics.fk_company_id = dim_company.sk_company_id 
+WHERE dim_company.country = %(country_1)s AND dim_date.datetime BETWEEN %(datetime_1)s AND %(datetime_2)s ORDER BY dim_company.symbol, dim_date.datetime 
+ LIMIT %(param_1)s OFFSET %(param_2)s]
+[parameters: {'country_1': 'US', 'datetime_1': datetime.datetime(2025, 2, 6, 0, 0), 'datetime_2': datetime.datetime(2025, 4, 7, 0, 0), 'param_1': 100, 'param_2': 0}]
+(Background on this error at: https://sqlalche.me/e/20/f405) | Execution Time: 0.0125 seconds
+2025-04-07 20:50:48,075 - INFO - 172.18.0.1 - - [07/Apr/2025 20:50:48] "[35m[1mGET /api/ml-model?country=US&days=60 HTTP/1.1[0m" 500 -
+2025-04-07 20:51:07,595 - ERROR - ERROR: /api/dim_date | Exception: (psycopg2.errors.UndefinedTable) relation "dim_date" does not exist
+LINE 2: FROM dim_date 
+             ^
+
+[SQL: SELECT dim_date.sk_date_id AS dim_date_sk_date_id, dim_date.datetime AS dim_date_datetime, dim_date.date AS dim_date_date, dim_date.hour AS dim_date_hour, dim_date.day_of_week AS dim_date_day_of_week, dim_date.day_name AS dim_date_day_name, dim_date.day_of_month AS dim_date_day_of_month, dim_date.day_of_year AS dim_date_day_of_year, dim_date.week_of_year AS dim_date_week_of_year, dim_date.month AS dim_date_month, dim_date.month_name AS dim_date_month_name, dim_date.quarter AS dim_date_quarter, dim_date.year AS dim_date_year, dim_date.fiscal_year AS dim_date_fiscal_year, dim_date.is_weekend AS dim_date_is_weekend 
+FROM dim_date 
+ LIMIT %(param_1)s]
+[parameters: {'param_1': 100}]
+(Background on this error at: https://sqlalche.me/e/20/f405) | Execution Time: 0.0015 seconds
+2025-04-07 20:51:07,598 - INFO - 172.18.0.1 - - [07/Apr/2025 20:51:07] "[35m[1mGET /api/dim_date HTTP/1.1[0m" 500 -
+2025-04-07 20:51:08,479 - ERROR - ERROR: /api/dim_date | Exception: (psycopg2.errors.UndefinedTable) relation "dim_date" does not exist
+LINE 2: FROM dim_date 
+             ^
+
+[SQL: SELECT dim_date.sk_date_id AS dim_date_sk_date_id, dim_date.datetime AS dim_date_datetime, dim_date.date AS dim_date_date, dim_date.hour AS dim_date_hour, dim_date.day_of_week AS dim_date_day_of_week, dim_date.day_name AS dim_date_day_name, dim_date.day_of_month AS dim_date_day_of_month, dim_date.day_of_year AS dim_date_day_of_year, dim_date.week_of_year AS dim_date_week_of_year, dim_date.month AS dim_date_month, dim_date.month_name AS dim_date_month_name, dim_date.quarter AS dim_date_quarter, dim_date.year AS dim_date_year, dim_date.fiscal_year AS dim_date_fiscal_year, dim_date.is_weekend AS dim_date_is_weekend 
+FROM dim_date 
+ LIMIT %(param_1)s]
+[parameters: {'param_1': 100}]
+(Background on this error at: https://sqlalche.me/e/20/f405) | Execution Time: 0.0020 seconds
+2025-04-07 20:51:08,483 - INFO - 172.18.0.1 - - [07/Apr/2025 20:51:08] "[35m[1mGET /api/dim_date HTTP/1.1[0m" 500 -
+2025-04-07 20:51:08,738 - ERROR - ERROR: /api/dim_date | Exception: (psycopg2.errors.UndefinedTable) relation "dim_date" does not exist
+LINE 2: FROM dim_date 
+             ^
+
+[SQL: SELECT dim_date.sk_date_id AS dim_date_sk_date_id, dim_date.datetime AS dim_date_datetime, dim_date.date AS dim_date_date, dim_date.hour AS dim_date_hour, dim_date.day_of_week AS dim_date_day_of_week, dim_date.day_name AS dim_date_day_name, dim_date.day_of_month AS dim_date_day_of_month, dim_date.day_of_year AS dim_date_day_of_year, dim_date.week_of_year AS dim_date_week_of_year, dim_date.month AS dim_date_month, dim_date.month_name AS dim_date_month_name, dim_date.quarter AS dim_date_quarter, dim_date.year AS dim_date_year, dim_date.fiscal_year AS dim_date_fiscal_year, dim_date.is_weekend AS dim_date_is_weekend 
+FROM dim_date 
+ LIMIT %(param_1)s]
+[parameters: {'param_1': 100}]
+(Background on this error at: https://sqlalche.me/e/20/f405) | Execution Time: 0.0018 seconds
+2025-04-07 20:51:08,740 - INFO - 172.18.0.1 - - [07/Apr/2025 20:51:08] "[35m[1mGET /api/dim_date HTTP/1.1[0m" 500 -
+2025-04-07 20:51:08,978 - ERROR - ERROR: /api/dim_date | Exception: (psycopg2.errors.UndefinedTable) relation "dim_date" does not exist
+LINE 2: FROM dim_date 
+             ^
+
+[SQL: SELECT dim_date.sk_date_id AS dim_date_sk_date_id, dim_date.datetime AS dim_date_datetime, dim_date.date AS dim_date_date, dim_date.hour AS dim_date_hour, dim_date.day_of_week AS dim_date_day_of_week, dim_date.day_name AS dim_date_day_name, dim_date.day_of_month AS dim_date_day_of_month, dim_date.day_of_year AS dim_date_day_of_year, dim_date.week_of_year AS dim_date_week_of_year, dim_date.month AS dim_date_month, dim_date.month_name AS dim_date_month_name, dim_date.quarter AS dim_date_quarter, dim_date.year AS dim_date_year, dim_date.fiscal_year AS dim_date_fiscal_year, dim_date.is_weekend AS dim_date_is_weekend 
+FROM dim_date 
+ LIMIT %(param_1)s]
+[parameters: {'param_1': 100}]
+(Background on this error at: https://sqlalche.me/e/20/f405) | Execution Time: 0.0012 seconds
+2025-04-07 20:51:08,982 - INFO - 172.18.0.1 - - [07/Apr/2025 20:51:08] "[35m[1mGET /api/dim_date HTTP/1.1[0m" 500 -
+2025-04-07 20:51:09,260 - ERROR - ERROR: /api/dim_date | Exception: (psycopg2.errors.UndefinedTable) relation "dim_date" does not exist
+LINE 2: FROM dim_date 
+             ^
+
+[SQL: SELECT dim_date.sk_date_id AS dim_date_sk_date_id, dim_date.datetime AS dim_date_datetime, dim_date.date AS dim_date_date, dim_date.hour AS dim_date_hour, dim_date.day_of_week AS dim_date_day_of_week, dim_date.day_name AS dim_date_day_name, dim_date.day_of_month AS dim_date_day_of_month, dim_date.day_of_year AS dim_date_day_of_year, dim_date.week_of_year AS dim_date_week_of_year, dim_date.month AS dim_date_month, dim_date.month_name AS dim_date_month_name, dim_date.quarter AS dim_date_quarter, dim_date.year AS dim_date_year, dim_date.fiscal_year AS dim_date_fiscal_year, dim_date.is_weekend AS dim_date_is_weekend 
+FROM dim_date 
+ LIMIT %(param_1)s]
+[parameters: {'param_1': 100}]
+(Background on this error at: https://sqlalche.me/e/20/f405) | Execution Time: 0.0015 seconds
+2025-04-07 20:51:09,262 - INFO - 172.18.0.1 - - [07/Apr/2025 20:51:09] "[35m[1mGET /api/dim_date HTTP/1.1[0m" 500 -
+2025-04-07 20:51:09,472 - ERROR - ERROR: /api/dim_date | Exception: (psycopg2.errors.UndefinedTable) relation "dim_date" does not exist
+LINE 2: FROM dim_date 
+             ^
+
+[SQL: SELECT dim_date.sk_date_id AS dim_date_sk_date_id, dim_date.datetime AS dim_date_datetime, dim_date.date AS dim_date_date, dim_date.hour AS dim_date_hour, dim_date.day_of_week AS dim_date_day_of_week, dim_date.day_name AS dim_date_day_name, dim_date.day_of_month AS dim_date_day_of_month, dim_date.day_of_year AS dim_date_day_of_year, dim_date.week_of_year AS dim_date_week_of_year, dim_date.month AS dim_date_month, dim_date.month_name AS dim_date_month_name, dim_date.quarter AS dim_date_quarter, dim_date.year AS dim_date_year, dim_date.fiscal_year AS dim_date_fiscal_year, dim_date.is_weekend AS dim_date_is_weekend 
+FROM dim_date 
+ LIMIT %(param_1)s]
+[parameters: {'param_1': 100}]
+(Background on this error at: https://sqlalche.me/e/20/f405) | Execution Time: 0.0018 seconds
+2025-04-07 20:51:09,474 - INFO - 172.18.0.1 - - [07/Apr/2025 20:51:09] "[35m[1mGET /api/dim_date HTTP/1.1[0m" 500 -
+2025-04-07 20:51:17,261 - ERROR - ERROR: /api/dim_date | Exception: (psycopg2.errors.UndefinedTable) relation "dim_date" does not exist
+LINE 2: FROM dim_date 
+             ^
+
+[SQL: SELECT dim_date.sk_date_id AS dim_date_sk_date_id, dim_date.datetime AS dim_date_datetime, dim_date.date AS dim_date_date, dim_date.hour AS dim_date_hour, dim_date.day_of_week AS dim_date_day_of_week, dim_date.day_name AS dim_date_day_name, dim_date.day_of_month AS dim_date_day_of_month, dim_date.day_of_year AS dim_date_day_of_year, dim_date.week_of_year AS dim_date_week_of_year, dim_date.month AS dim_date_month, dim_date.month_name AS dim_date_month_name, dim_date.quarter AS dim_date_quarter, dim_date.year AS dim_date_year, dim_date.fiscal_year AS dim_date_fiscal_year, dim_date.is_weekend AS dim_date_is_weekend 
+FROM dim_date 
+ LIMIT %(param_1)s]
+[parameters: {'param_1': 100}]
+(Background on this error at: https://sqlalche.me/e/20/f405) | Execution Time: 0.0033 seconds
+2025-04-07 20:51:17,265 - INFO - 172.18.0.1 - - [07/Apr/2025 20:51:17] "[35m[1mGET /api/dim_date HTTP/1.1[0m" 500 -
+2025-04-07 20:51:28,995 - ERROR - ERROR: /api/dim_exchange | Exception: (psycopg2.errors.UndefinedTable) relation "dim_exchange" does not exist
+LINE 2: FROM dim_exchange
+             ^
+
+[SQL: SELECT dim_exchange.sk_exchange_id AS dim_exchange_sk_exchange_id, dim_exchange.name AS dim_exchange_name, dim_exchange.symbol AS dim_exchange_symbol, dim_exchange.opening_hour AS dim_exchange_opening_hour, dim_exchange.closing_hour AS dim_exchange_closing_hour, dim_exchange.timezone AS dim_exchange_timezone 
+FROM dim_exchange]
+(Background on this error at: https://sqlalche.me/e/20/f405) | Execution Time: 0.0010 seconds
+2025-04-07 20:51:28,998 - INFO - 172.18.0.1 - - [07/Apr/2025 20:51:28] "[35m[1mGET /api/dim_exchange HTTP/1.1[0m" 500 -
+2025-04-07 20:59:00,151 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-04-07 20:59:00,158 - INFO - [33mPress CTRL+C to quit[0m
