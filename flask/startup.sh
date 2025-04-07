@@ -25,21 +25,27 @@ else
 fi
 
 echo "🚀 Starting Docker containers with docker-compose..."
-docker-compose up -d
+
+docker-compose up --build -d
 
 # Wait for the DB container to be fully ready
 echo "⏳ Waiting for the database container to be ready..."
-sleep 10  # Adjust based on DB startup time
+until docker exec -it flask_db pg_isready -U postgres; do
+    echo "⏳ Waiting for the database to be ready..."
+    sleep 5
+done
+
+# Drop and recreate the database
+echo "🗑️ Dropping and recreating the database..."
+docker exec -it flask_db psql -U postgres -c "DROP DATABASE IF EXISTS flaskdb;"
+docker exec -it flask_db psql -U postgres -c "CREATE DATABASE flaskdb;"
 
 # Copy the SQL file into the container
 echo "📄 Copying init.sql into flask_db container..."
-docker cp flask/init.sql flask_db:/tmp/
+docker cp init.sql flask_db:/tmp/
 
-# Run the SQL file
-echo "⚙️ Executing init.sql inside the database..."
-docker exec -it flask_db psql -U postgres -d flaskdb -f /tmp/flask/init.sql
-
-# Optional: If using a dump file instead
-# docker exec -it flask_db pg_restore -U postgres -d flaskdb /tmp/init.sql
+# Restore the custom-format dump
+echo "⚙️ Restoring init.sql inside the database..."
+docker exec -it flask_db pg_restore --clean --if-exists -U postgres -d flaskdb /tmp/init.sql
 
 echo "✅ Startup complete."
