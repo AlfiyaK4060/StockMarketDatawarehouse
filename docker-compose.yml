@@ -1,11 +1,12 @@
-version: "3.8"
 
 services:
   web:
+    container_name: flask_web
+
     build:
       context: ./flask
     ports:
-      - "5000:5000"
+      - "5001:5000"
     environment:
       - SQLALCHEMY_DATABASE_URI=postgresql://postgres:postgres@db:5432/flaskdb
     depends_on:
@@ -13,23 +14,13 @@ services:
     volumes:
       - ./flask/logs:/app/logs
 
-  react:
-    build:
-      context: ./ReactJS
-    ports:
-      - "3000:3000"
-    working_dir: /app
-    command: ["npm", "start"]
-    volumes:
-      - ./ReactJS:/app
-      - /app/node_modules
-    stdin_open: true
-    tty: true
-    depends_on:
-      - web
+
 
   db:
+    container_name: flask_db
     image: postgres:latest
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres

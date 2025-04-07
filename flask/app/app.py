@@ -74,7 +74,7 @@ def log_request(endpoint, record_count, execution_time):
     logging.info(f"API: {endpoint} | Records Retrieved: {record_count} | Execution Time: {execution_time:.4f} seconds")
 
 # Route to view all tables
-@app.route('/tables')
+@app.route('/api/tables')
 def view_tables():
     try:
         # Adjust query for SQLite compatibility
@@ -93,6 +93,7 @@ def view_tables():
         print(f"Error in view_tables: {e}", file=sys.stderr)
         print(traceback.format_exc(), file=sys.stderr)
         return jsonify({"error": str(e)}), 500
+
 
 
 
@@ -150,21 +151,33 @@ def get_schema():
 def get_dim_date():
     start_time = time.time()
     try:
-        results = DimDate.query.limit(100)
-        record_count = len(results)
+        # Execute the query to fetch results
+        results = DimDate.query.limit(100).all()  # Use `.all()` to retrieve the results as a list
+        record_count = len(results)  # Now `results` is a list, so `len()` works
 
-        formatted_results = [{"date": row.date, "datetime": row.datetime.isoformat() if row.datetime else None} for row in results]
-        
+        formatted_results = [
+            {"date": row.date, "datetime": row.datetime.isoformat() if row.datetime else None}
+            for row in results
+        ]
+
         execution_time = time.time() - start_time
         log_request("/api/dim_date", record_count, execution_time)
 
-        return jsonify({"data": formatted_results, "metadata": {"record_count": record_count, "execution_time_seconds": round(execution_time, 4)}})
+        return jsonify({
+            "data": formatted_results,
+            "metadata": {
+                "record_count": record_count,
+                "execution_time_seconds": round(execution_time, 4)
+            }
+        })
 
     except SQLAlchemyError as e:
         execution_time = time.time() - start_time
         logging.error(f"ERROR: /api/dim_date | Exception: {e} | Execution Time: {execution_time:.4f} seconds")
-        return jsonify({"error": str(e), "metadata": {"execution_time_seconds": execution_time}}), 500
-
+        return jsonify({
+            "error": str(e),
+            "metadata": {"execution_time_seconds": execution_time}
+        }), 500
 # =============================
 # 2️⃣ GET DIM EXCHANGE
 # =============================

@@ -68,3 +68,303 @@
 2025-04-07 06:55:44,625 - INFO - 172.18.0.1 - - [07/Apr/2025 06:55:44] "[31m[1mGET / HTTP/1.1[0m" 400 -
 2025-04-07 06:55:44,766 - INFO - 172.18.0.1 - - [07/Apr/2025 06:55:44] "[33mGET /loginMsg.js HTTP/1.1[0m" 404 -
 2025-04-07 06:55:44,798 - INFO - 172.18.0.1 - - [07/Apr/2025 06:55:44] "[33mGET /cgi/get.cgi?cmd=home_login HTTP/1.1[0m" 404 -
+2025-04-07 19:53:05,725 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.0.3:5000
+2025-04-07 19:53:05,725 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-07 19:54:54,860 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.0.3:5000
+2025-04-07 19:54:54,861 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-07 20:03:47,738 - INFO - 192.168.65.1 - - [07/Apr/2025 20:03:47] "GET / HTTP/1.1" 200 -
+2025-04-07 20:04:08,724 - INFO - 192.168.65.1 - - [07/Apr/2025 20:04:08] "[33mGET /api/stock/MSFT HTTP/1.1[0m" 404 -
+2025-04-07 20:04:20,688 - INFO - 192.168.65.1 - - [07/Apr/2025 20:04:20] "[33mGET /api/tables HTTP/1.1[0m" 404 -
+2025-04-07 20:04:43,934 - INFO - 192.168.65.1 - - [07/Apr/2025 20:04:43] "[33mGET /api/tables HTTP/1.1[0m" 404 -
+2025-04-07 20:04:54,080 - INFO - 192.168.65.1 - - [07/Apr/2025 20:04:54] "GET / HTTP/1.1" 200 -
+2025-04-07 20:05:12,867 - INFO - 192.168.65.1 - - [07/Apr/2025 20:05:12] "[33mGET /api/tables HTTP/1.1[0m" 404 -
+2025-04-07 20:05:39,783 - INFO - 192.168.65.1 - - [07/Apr/2025 20:05:39] "[33mGET /api/ HTTP/1.1[0m" 404 -
+2025-04-07 20:05:43,296 - INFO - 192.168.65.1 - - [07/Apr/2025 20:05:43] "GET /tables HTTP/1.1" 200 -
+2025-04-07 20:05:55,997 - INFO - 192.168.65.1 - - [07/Apr/2025 20:05:55] "[33mGET /stock/MSFT HTTP/1.1[0m" 404 -
+2025-04-07 20:07:10,079 - INFO - 192.168.65.1 - - [07/Apr/2025 20:07:10] "GET /tables HTTP/1.1" 200 -
+2025-04-07 20:07:19,571 - INFO - 192.168.65.1 - - [07/Apr/2025 20:07:19] "GET /api/market HTTP/1.1" 200 -
+2025-04-07 20:14:11,709 - INFO - 192.168.65.1 - - [07/Apr/2025 20:14:11] "GET /api/market HTTP/1.1" 200 -
+2025-04-07 20:14:22,721 - INFO - Ticker: AAPL | Records Retrieved: 227 | Execution Time: 0.0728 seconds
+2025-04-07 20:14:22,724 - INFO - 192.168.65.1 - - [07/Apr/2025 20:14:22] "GET /api/ml-model/stock?ticker=AAPL HTTP/1.1" 200 -
+2025-04-07 20:14:33,552 - ERROR - Exception on /api/dim_date [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 154, in get_dim_date
+    record_count = len(results)
+                   ^^^^^^^^^^^^
+TypeError: object of type 'Query' has no len()
+2025-04-07 20:14:33,558 - INFO - 192.168.65.1 - - [07/Apr/2025 20:14:33] "[35m[1mGET /api/dim_date HTTP/1.1[0m" 500 -
+2025-04-07 20:14:36,291 - INFO - API: /api/dim_exchange | Records Retrieved: 107 | Execution Time: 0.0066 seconds
+2025-04-07 20:14:36,294 - INFO - 192.168.65.1 - - [07/Apr/2025 20:14:36] "GET /api/dim_exchange HTTP/1.1" 200 -
+2025-04-07 20:16:45,881 - INFO - 192.168.65.1 - - [07/Apr/2025 20:16:45] "GET /api/market HTTP/1.1" 200 -
+2025-04-07 20:17:04,575 - INFO - Ticker: AAPL | Records Retrieved: 227 | Execution Time: 0.1207 seconds
+2025-04-07 20:17:04,580 - INFO - 192.168.65.1 - - [07/Apr/2025 20:17:04] "GET /api/ml-model/stock?ticker=AAPL HTTP/1.1" 200 -
+2025-04-07 20:17:25,569 - INFO - 192.168.65.1 - - [07/Apr/2025 20:17:25] "GET /api/market HTTP/1.1" 200 -
+2025-04-07 20:17:38,055 - INFO - Ticker: AAPL | Records Retrieved: 227 | Execution Time: 0.0715 seconds
+2025-04-07 20:17:38,059 - INFO - 192.168.65.1 - - [07/Apr/2025 20:17:38] "GET /api/ml-model/stock?ticker=AAPL HTTP/1.1" 200 -
+2025-04-07 20:17:46,660 - ERROR - Exception on /api/dim_date [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 154, in get_dim_date
+    record_count = len(results)
+                   ^^^^^^^^^^^^
+TypeError: object of type 'Query' has no len()
+2025-04-07 20:17:46,662 - INFO - 192.168.65.1 - - [07/Apr/2025 20:17:46] "[35m[1mGET /api/dim_date HTTP/1.1[0m" 500 -
+2025-04-07 20:17:52,752 - INFO - API: /api/dim_exchange | Records Retrieved: 107 | Execution Time: 0.0061 seconds
+2025-04-07 20:17:52,754 - INFO - 192.168.65.1 - - [07/Apr/2025 20:17:52] "GET /api/dim_exchange HTTP/1.1" 200 -
+2025-04-07 20:17:56,757 - INFO - API: /api/dim_commodity | Records Retrieved: 40 | Execution Time: 0.0082 seconds
+2025-04-07 20:17:56,760 - INFO - 192.168.65.1 - - [07/Apr/2025 20:17:56] "GET /api/dim_commodity HTTP/1.1" 200 -
+2025-04-07 20:18:00,754 - INFO - API: /api/ml-model | Country: US | Records: 100 | Execution Time: 0.3256 seconds
+2025-04-07 20:18:00,756 - INFO - 192.168.65.1 - - [07/Apr/2025 20:18:00] "GET /api/ml-model?country=US&days=60 HTTP/1.1" 200 -
+2025-04-07 20:18:05,415 - INFO - API: /api/dim_company | Records Retrieved: 1 | Execution Time: 0.0147 seconds
+2025-04-07 20:18:05,417 - INFO - 192.168.65.1 - - [07/Apr/2025 20:18:05] "GET /api/dim_company?ticker=AAPL HTTP/1.1" 200 -
+2025-04-07 20:18:10,563 - INFO - 192.168.65.1 - - [07/Apr/2025 20:18:10] "GET / HTTP/1.1" 200 -
+2025-04-07 20:18:13,595 - INFO - 192.168.65.1 - - [07/Apr/2025 20:18:13] "GET /tables HTTP/1.1" 200 -
+2025-04-07 20:18:17,186 - INFO - 192.168.65.1 - - [07/Apr/2025 20:18:17] "GET /schema HTTP/1.1" 200 -
+2025-04-07 20:19:25,679 - INFO - Ticker: AAPL | Records Retrieved: 227 | Execution Time: 0.1959 seconds
+2025-04-07 20:19:25,686 - INFO - 192.168.65.1 - - [07/Apr/2025 20:19:25] "GET /api/ml-model/stock?ticker=AAPL HTTP/1.1" 200 -
+2025-04-07 20:19:29,203 - ERROR - Exception on /api/dim_date [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 154, in get_dim_date
+    record_count = len(results)
+                   ^^^^^^^^^^^^
+TypeError: object of type 'Query' has no len()
+2025-04-07 20:19:29,207 - INFO - 192.168.65.1 - - [07/Apr/2025 20:19:29] "[35m[1mGET /api/dim_date HTTP/1.1[0m" 500 -
+2025-04-07 20:19:30,099 - ERROR - Exception on /api/dim_date [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 154, in get_dim_date
+    record_count = len(results)
+                   ^^^^^^^^^^^^
+TypeError: object of type 'Query' has no len()
+2025-04-07 20:19:30,101 - INFO - 192.168.65.1 - - [07/Apr/2025 20:19:30] "[35m[1mGET /api/dim_date HTTP/1.1[0m" 500 -
+2025-04-07 20:19:30,277 - ERROR - Exception on /api/dim_date [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 154, in get_dim_date
+    record_count = len(results)
+                   ^^^^^^^^^^^^
+TypeError: object of type 'Query' has no len()
+2025-04-07 20:19:30,279 - INFO - 192.168.65.1 - - [07/Apr/2025 20:19:30] "[35m[1mGET /api/dim_date HTTP/1.1[0m" 500 -
+2025-04-07 20:19:32,036 - ERROR - Exception on /api/dim_date [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 154, in get_dim_date
+    record_count = len(results)
+                   ^^^^^^^^^^^^
+TypeError: object of type 'Query' has no len()
+2025-04-07 20:19:32,039 - INFO - 192.168.65.1 - - [07/Apr/2025 20:19:32] "[35m[1mGET /api/dim_date HTTP/1.1[0m" 500 -
+2025-04-07 20:19:44,563 - ERROR - Exception on /api/dim_date [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 154, in get_dim_date
+    record_count = len(results)
+                   ^^^^^^^^^^^^
+TypeError: object of type 'Query' has no len()
+2025-04-07 20:19:44,568 - INFO - 192.168.65.1 - - [07/Apr/2025 20:19:44] "[35m[1mGET /api/dim_date HTTP/1.1[0m" 500 -
+2025-04-07 20:19:45,466 - INFO - 192.168.65.1 - - [07/Apr/2025 20:19:45] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-07 20:20:01,635 - ERROR - Exception on /api/dim_date [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 154, in get_dim_date
+    record_count = len(results)
+                   ^^^^^^^^^^^^
+TypeError: object of type 'Query' has no len()
+2025-04-07 20:20:01,642 - INFO - 192.168.65.1 - - [07/Apr/2025 20:20:01] "[35m[1mGET /api/dim_date HTTP/1.1[0m" 500 -
+2025-04-07 20:26:07,142 - INFO - Ticker: AAPL | Records Retrieved: 227 | Execution Time: 0.1717 seconds
+2025-04-07 20:26:07,148 - INFO - 192.168.65.1 - - [07/Apr/2025 20:26:07] "GET /api/ml-model/stock?ticker=AAPL HTTP/1.1" 200 -
+2025-04-07 20:26:27,337 - ERROR - Exception on /api/dim_date [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 154, in get_dim_date
+    record_count = len(results)
+                   ^^^^^^^^^^^^
+TypeError: object of type 'Query' has no len()
+2025-04-07 20:26:27,344 - INFO - 192.168.65.1 - - [07/Apr/2025 20:26:27] "[35m[1mGET /api/dim_date HTTP/1.1[0m" 500 -
+2025-04-07 20:26:52,567 - ERROR - Exception on /api/dim_date [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 154, in get_dim_date
+    record_count = len(results)
+                   ^^^^^^^^^^^^
+TypeError: object of type 'Query' has no len()
+2025-04-07 20:26:52,570 - INFO - 192.168.65.1 - - [07/Apr/2025 20:26:52] "[35m[1mGET /api/dim_date HTTP/1.1[0m" 500 -
+2025-04-07 20:26:59,788 - INFO - API: /api/dim_exchange | Records Retrieved: 107 | Execution Time: 0.0115 seconds
+2025-04-07 20:26:59,791 - INFO - 192.168.65.1 - - [07/Apr/2025 20:26:59] "GET /api/dim_exchange HTTP/1.1" 200 -
+2025-04-07 20:27:07,624 - INFO - API: /api/dim_company | Records Retrieved: 1 | Execution Time: 0.0140 seconds
+2025-04-07 20:27:07,625 - INFO - 192.168.65.1 - - [07/Apr/2025 20:27:07] "GET /api/dim_company?ticker=AAPL HTTP/1.1" 200 -
+2025-04-07 20:28:27,706 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.0.3:5000
+2025-04-07 20:28:27,707 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-07 20:29:09,575 - INFO - API: /api/dim_date | Records Retrieved: 100 | Execution Time: 0.0526 seconds
+2025-04-07 20:29:09,579 - INFO - 192.168.65.1 - - [07/Apr/2025 20:29:09] "GET /api/dim_date HTTP/1.1" 200 -
+2025-04-07 20:29:18,266 - ERROR - ERROR: /api/dim_bond | Exception: (psycopg2.errors.UndefinedColumn) column dim_bond.name does not exist
+LINE 1: ...ELECT dim_bond.sk_bond_id AS dim_bond_sk_bond_id, dim_bond.n...
+                                                             ^
+
+[SQL: SELECT dim_bond.sk_bond_id AS dim_bond_sk_bond_id, dim_bond.name AS dim_bond_name, dim_bond.symbol AS dim_bond_symbol 
+FROM dim_bond]
+(Background on this error at: https://sqlalche.me/e/20/f405) | Execution Time: 0.0042 seconds
+2025-04-07 20:29:18,269 - INFO - 192.168.65.1 - - [07/Apr/2025 20:29:18] "[35m[1mGET /api/dim_bond HTTP/1.1[0m" 500 -
+2025-04-07 20:29:20,864 - INFO - 192.168.65.1 - - [07/Apr/2025 20:29:20] "GET /schema HTTP/1.1" 200 -
+2025-04-07 20:34:03,372 - INFO - 192.168.65.1 - - [07/Apr/2025 20:34:03] "GET / HTTP/1.1" 200 -
+2025-04-07 20:34:05,499 - INFO - 192.168.65.1 - - [07/Apr/2025 20:34:05] "[33mGET /api/tables HTTP/1.1[0m" 404 -
+2025-04-07 20:34:05,677 - INFO - 192.168.65.1 - - [07/Apr/2025 20:34:05] "[33mGET /api/tables HTTP/1.1[0m" 404 -
+2025-04-07 20:34:05,841 - INFO - 192.168.65.1 - - [07/Apr/2025 20:34:05] "[33mGET /api/tables HTTP/1.1[0m" 404 -
+2025-04-07 20:34:06,008 - INFO - 192.168.65.1 - - [07/Apr/2025 20:34:06] "[33mGET /api/tables HTTP/1.1[0m" 404 -
+2025-04-07 20:34:06,192 - INFO - 192.168.65.1 - - [07/Apr/2025 20:34:06] "[33mGET /api/tables HTTP/1.1[0m" 404 -
+2025-04-07 20:34:06,340 - INFO - 192.168.65.1 - - [07/Apr/2025 20:34:06] "[33mGET /api/tables HTTP/1.1[0m" 404 -
+2025-04-07 20:34:56,038 - INFO - 192.168.65.1 - - [07/Apr/2025 20:34:56] "GET /api/market HTTP/1.1" 200 -
+2025-04-07 20:34:58,862 - INFO - 192.168.65.1 - - [07/Apr/2025 20:34:58] "GET / HTTP/1.1" 200 -
+2025-04-07 20:35:19,221 - INFO - 192.168.65.1 - - [07/Apr/2025 20:35:19] "[33mGET /api/tables HTTP/1.1[0m" 404 -
+2025-04-07 20:35:22,451 - INFO - 192.168.65.1 - - [07/Apr/2025 20:35:22] "[33mGET /api/tables HTTP/1.1[0m" 404 -
+2025-04-07 20:35:23,117 - INFO - 192.168.65.1 - - [07/Apr/2025 20:35:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
