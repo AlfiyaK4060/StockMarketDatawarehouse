@@ -533,3 +533,482 @@ FROM dim_exchange]
  * Running on http://127.0.0.1:5000
  * Running on http://172.18.0.3:5000
 2025-04-07 21:29:23,727 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 02:39:01,059 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-04-18 02:39:01,060 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 02:42:15,413 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-04-18 02:42:15,414 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 02:44:41,999 - INFO - API: /api/dim_date | Records Retrieved: 100 | Execution Time: 0.0834 seconds
+2025-04-18 02:44:42,006 - INFO - 172.18.0.1 - - [18/Apr/2025 02:44:42] "GET /api/dim_date HTTP/1.1" 200 -
+2025-04-18 02:44:56,019 - INFO - API: /api/dim_exchange | Records Retrieved: 107 | Execution Time: 0.0084 seconds
+2025-04-18 02:44:56,023 - INFO - 172.18.0.1 - - [18/Apr/2025 02:44:56] "GET /api/dim_exchange HTTP/1.1" 200 -
+2025-04-18 02:45:03,286 - ERROR - Exception on /api/dim_bond [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 472, in get_dim_bond
+    DimBond.treasury_name  # Use treasury_name as defined in the model
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'DimBond' has no attribute 'treasury_name'
+2025-04-18 02:45:03,292 - INFO - 172.18.0.1 - - [18/Apr/2025 02:45:03] "[35m[1mGET /api/dim_bond HTTP/1.1[0m" 500 -
+2025-04-18 02:45:27,185 - INFO - API: /api/dim_commodity | Records Retrieved: 40 | Execution Time: 0.0062 seconds
+2025-04-18 02:45:27,189 - INFO - 172.18.0.1 - - [18/Apr/2025 02:45:27] "GET /api/dim_commodity HTTP/1.1" 200 -
+2025-04-18 02:45:39,610 - INFO - 172.18.0.1 - - [18/Apr/2025 02:45:39] "[33mGET /api/dim_index HTTP/1.1[0m" 404 -
+2025-04-18 02:46:30,651 - INFO - 172.18.0.1 - - [18/Apr/2025 02:46:30] "[33mGET /api/dim_index?days=60&to=2025-03-14&from=2025-01-13&country=US&ticker=S&P500 HTTP/1.1[0m" 404 -
+2025-04-18 02:46:39,043 - INFO - 172.18.0.1 - - [18/Apr/2025 02:46:39] "[33mGET /api/dim_index?days=60&to=2025-03-14&from=2025-01-13&country=US&ticker=S&P500 HTTP/1.1[0m" 404 -
+2025-04-18 02:46:41,706 - INFO - 172.18.0.1 - - [18/Apr/2025 02:46:41] "[33mGET /api/dim_index?days=60&to=2025-03-14&from=2025-01-13&country=US&ticker=S&P500 HTTP/1.1[0m" 404 -
+2025-04-18 02:46:51,573 - INFO - 172.18.0.1 - - [18/Apr/2025 02:46:51] "[33mGET /api/dim_index HTTP/1.1[0m" 404 -
+2025-04-18 02:48:49,137 - INFO - 172.18.0.1 - - [18/Apr/2025 02:48:49] "[31m[1mGET /api/dim_company HTTP/1.1[0m" 400 -
+2025-04-18 02:49:51,214 - INFO - 172.18.0.1 - - [18/Apr/2025 02:49:51] "GET /api/market HTTP/1.1" 200 -
+2025-04-18 02:51:13,600 - ERROR - Exception on /api/dim_bond [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 472, in get_dim_bond
+    DimBond.treasury_name  # Use treasury_name as defined in the model
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'DimBond' has no attribute 'treasury_name'
+2025-04-18 02:51:13,606 - INFO - 172.18.0.1 - - [18/Apr/2025 02:51:13] "[35m[1mGET /api/dim_bond HTTP/1.1[0m" 500 -
+2025-04-18 02:59:54,397 - INFO - API: /api/ml-model | Country: US | Records: 100 | Execution Time: 0.9720 seconds
+2025-04-18 02:59:54,403 - INFO - 172.18.0.1 - - [18/Apr/2025 02:59:54] "GET /api/ml-model?country=US&days=60 HTTP/1.1" 200 -
+2025-04-18 03:00:53,088 - INFO - Ticker: AAPL | Records Retrieved: 24 | Execution Time: 0.5346 seconds
+2025-04-18 03:00:53,092 - INFO - 172.18.0.1 - - [18/Apr/2025 03:00:53] "GET /api/ml-model/stock?ticker=AAPL HTTP/1.1" 200 -
+2025-04-18 03:09:18,328 - ERROR - Exception on /api/dim_bond [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 472, in get_dim_bond
+    DimBond.treasury_name  # Use treasury_name as defined in the model
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'DimBond' has no attribute 'treasury_name'
+2025-04-18 03:09:18,334 - INFO - 172.18.0.1 - - [18/Apr/2025 03:09:18] "[35m[1mGET /api/dim_bond HTTP/1.1[0m" 500 -
+2025-04-18 06:30:50,544 - INFO - 172.18.0.1 - - [18/Apr/2025 06:30:50] "[33mGET /api/dim_stock HTTP/1.1[0m" 404 -
+2025-04-18 06:31:38,033 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-04-18 06:31:38,033 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 06:31:41,092 - INFO - 172.18.0.1 - - [18/Apr/2025 06:31:41] "[33mGET /api/dim_stock HTTP/1.1[0m" 404 -
+2025-04-18 06:35:10,984 - INFO - 172.18.0.1 - - [18/Apr/2025 06:35:10] "[33mGET /api/dim_stock HTTP/1.1[0m" 404 -
+2025-04-18 06:35:12,831 - INFO - 172.18.0.1 - - [18/Apr/2025 06:35:12] "[33mGET /api/dim_stock HTTP/1.1[0m" 404 -
+2025-04-18 06:38:02,042 - INFO - 172.18.0.1 - - [18/Apr/2025 06:38:02] "[33mGET /api/dim_stock HTTP/1.1[0m" 404 -
+2025-04-18 06:38:03,624 - INFO - 172.18.0.1 - - [18/Apr/2025 06:38:03] "[33mGET /api/dim_stock HTTP/1.1[0m" 404 -
+2025-04-18 06:39:18,596 - INFO - 172.18.0.1 - - [18/Apr/2025 06:39:18] "[33mGET /api/dim_stock HTTP/1.1[0m" 404 -
+2025-04-18 06:40:19,815 - ERROR - Exception on /api/dim_bond [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 472, in get_dim_bond
+    DimBond.treasury_name  # Use treasury_name as defined in the model
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'DimBond' has no attribute 'treasury_name'
+2025-04-18 06:40:19,837 - INFO - 172.18.0.1 - - [18/Apr/2025 06:40:19] "[35m[1mGET /api/dim_bond HTTP/1.1[0m" 500 -
+2025-04-18 06:44:41,824 - ERROR - Exception on /api/dim_bond [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 472, in get_dim_bond
+    DimBond.treasury_name  # Use treasury_name as defined in the model
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'DimBond' has no attribute 'treasury_name'
+2025-04-18 06:44:41,833 - INFO - 172.18.0.1 - - [18/Apr/2025 06:44:41] "[35m[1mGET /api/dim_bond HTTP/1.1[0m" 500 -
+2025-04-18 06:45:43,580 - ERROR - Exception on /api/dim_bond [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 472, in get_dim_bond
+    DimBond.treasury_name  # Use treasury_name as defined in the model
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'DimBond' has no attribute 'treasury_name'
+2025-04-18 06:45:43,585 - INFO - 172.18.0.1 - - [18/Apr/2025 06:45:43] "[35m[1mGET /api/dim_bond HTTP/1.1[0m" 500 -
+2025-04-18 06:48:07,878 - ERROR - Exception on /api/dim_bond [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 472, in get_dim_bond
+    DimBond.treasury_name  # Use treasury_name as defined in the model
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'DimBond' has no attribute 'treasury_name'
+2025-04-18 06:48:07,885 - INFO - 172.18.0.1 - - [18/Apr/2025 06:48:07] "[35m[1mGET /api/dim_bond HTTP/1.1[0m" 500 -
+2025-04-18 06:53:35,784 - ERROR - Exception on /api/dim_bond [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 472, in get_dim_bond
+    DimBond.treasury_name  # Use treasury_name as defined in the model
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'DimBond' has no attribute 'treasury_name'
+2025-04-18 06:53:35,798 - INFO - 172.18.0.1 - - [18/Apr/2025 06:53:35] "[35m[1mGET /api/dim_bond HTTP/1.1[0m" 500 -
+2025-04-18 06:53:36,738 - ERROR - Exception on /api/dim_bond [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 472, in get_dim_bond
+    DimBond.treasury_name  # Use treasury_name as defined in the model
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'DimBond' has no attribute 'treasury_name'
+2025-04-18 06:53:36,742 - INFO - 172.18.0.1 - - [18/Apr/2025 06:53:36] "[35m[1mGET /api/dim_bond HTTP/1.1[0m" 500 -
+2025-04-18 06:53:40,449 - INFO - API: /api/dim_date | Records Retrieved: 100 | Execution Time: 0.0664 seconds
+2025-04-18 06:53:40,453 - INFO - 172.18.0.1 - - [18/Apr/2025 06:53:40] "GET /api/dim_date HTTP/1.1" 200 -
+2025-04-18 06:54:00,463 - INFO - API: /api/dim_commodity | Records Retrieved: 40 | Execution Time: 0.0062 seconds
+2025-04-18 06:54:00,466 - INFO - 172.18.0.1 - - [18/Apr/2025 06:54:00] "GET /api/dim_commodity HTTP/1.1" 200 -
+2025-04-18 06:54:14,762 - INFO - API: /api/dim_exchange | Records Retrieved: 107 | Execution Time: 0.0219 seconds
+2025-04-18 06:54:14,768 - INFO - 172.18.0.1 - - [18/Apr/2025 06:54:14] "GET /api/dim_exchange HTTP/1.1" 200 -
+2025-04-18 06:54:50,383 - INFO - Ticker: AAPL", | Records Retrieved: 0 | Execution Time: 0.0644 seconds
+2025-04-18 06:54:50,385 - INFO - 172.18.0.1 - - [18/Apr/2025 06:54:50] "GET /api/ml-model/stock?ticker=AAPL", HTTP/1.1" 200 -
+2025-04-18 06:54:53,867 - INFO - Ticker: AAPL | Records Retrieved: 24 | Execution Time: 0.0946 seconds
+2025-04-18 06:54:53,870 - INFO - 172.18.0.1 - - [18/Apr/2025 06:54:53] "GET /api/ml-model/stock?ticker=AAPL HTTP/1.1" 200 -
+2025-04-18 06:55:17,386 - INFO - Ticker: AAPL | Records Retrieved: 24 | Execution Time: 0.1722 seconds
+2025-04-18 06:55:17,395 - INFO - 172.18.0.1 - - [18/Apr/2025 06:55:17] "GET /api/ml-model/stock?ticker=AAPL HTTP/1.1" 200 -
+2025-04-18 06:55:36,961 - ERROR - Exception on /api/dim_bond [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 472, in get_dim_bond
+    DimBond.treasury_name  # Use treasury_name as defined in the model
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'DimBond' has no attribute 'treasury_name'
+2025-04-18 06:55:36,965 - INFO - 172.18.0.1 - - [18/Apr/2025 06:55:36] "[35m[1mGET /api/dim_bond HTTP/1.1[0m" 500 -
+2025-04-19 00:03:14,051 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-04-19 00:03:14,053 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-19 00:07:06,760 - INFO - API: /api/dim_exchange | Records Retrieved: 107 | Execution Time: 0.0416 seconds
+2025-04-19 00:07:06,764 - INFO - 172.18.0.1 - - [19/Apr/2025 00:07:06] "GET /api/dim_exchange HTTP/1.1" 200 -
+2025-04-19 00:07:17,930 - INFO - API: /api/dim_date | Records Retrieved: 100 | Execution Time: 0.0103 seconds
+2025-04-19 00:07:17,942 - INFO - 172.18.0.1 - - [19/Apr/2025 00:07:17] "GET /api/dim_date HTTP/1.1" 200 -
+2025-04-19 00:07:33,400 - ERROR - Exception on /api/dim_bond [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 472, in get_dim_bond
+    DimBond.treasury_name  # Use treasury_name as defined in the model
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'DimBond' has no attribute 'treasury_name'
+2025-04-19 00:07:33,409 - INFO - 172.18.0.1 - - [19/Apr/2025 00:07:33] "[35m[1mGET /api/dim_bond HTTP/1.1[0m" 500 -
+2025-04-19 00:21:14,816 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-04-19 00:21:14,817 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-19 00:21:43,458 - ERROR - ERROR: /api/dim_date | Exception: (psycopg2.errors.UndefinedTable) relation "dim_date" does not exist
+LINE 2: FROM dim_date 
+             ^
+
+[SQL: SELECT dim_date.sk_date_id AS dim_date_sk_date_id, dim_date.datetime AS dim_date_datetime, dim_date.date AS dim_date_date, dim_date.hour AS dim_date_hour, dim_date.day_of_week AS dim_date_day_of_week, dim_date.day_name AS dim_date_day_name, dim_date.day_of_month AS dim_date_day_of_month, dim_date.day_of_year AS dim_date_day_of_year, dim_date.week_of_year AS dim_date_week_of_year, dim_date.month AS dim_date_month, dim_date.month_name AS dim_date_month_name, dim_date.quarter AS dim_date_quarter, dim_date.year AS dim_date_year, dim_date.fiscal_year AS dim_date_fiscal_year, dim_date.is_weekend AS dim_date_is_weekend 
+FROM dim_date 
+ LIMIT %(param_1)s]
+[parameters: {'param_1': 100}]
+(Background on this error at: https://sqlalche.me/e/20/f405) | Execution Time: 0.0471 seconds
+2025-04-19 00:21:43,463 - INFO - 172.18.0.1 - - [19/Apr/2025 00:21:43] "[35m[1mGET /api/dim_date HTTP/1.1[0m" 500 -
+2025-04-19 00:22:30,221 - INFO - API: /api/dim_date | Records Retrieved: 100 | Execution Time: 0.0115 seconds
+2025-04-19 00:22:30,227 - INFO - 172.18.0.1 - - [19/Apr/2025 00:22:30] "GET /api/dim_date HTTP/1.1" 200 -
+2025-04-19 00:22:36,632 - INFO - API: /api/dim_bond | Records Retrieved: 1 | Execution Time: 0.0031 seconds
+2025-04-19 00:22:36,635 - INFO - 172.18.0.1 - - [19/Apr/2025 00:22:36] "GET /api/dim_bond HTTP/1.1" 200 -
+2025-04-19 00:22:44,524 - INFO - API: /api/dim_stock | Records Retrieved: 100 | Execution Time: 0.0222 seconds
+2025-04-19 00:22:44,537 - INFO - 172.18.0.1 - - [19/Apr/2025 00:22:44] "GET /api/dim_stock HTTP/1.1" 200 -
+2025-04-19 00:31:13,264 - INFO - API: /api/dim_date | Records Retrieved: 100 | Execution Time: 0.0044 seconds
+2025-04-19 00:31:13,268 - INFO - 172.18.0.1 - - [19/Apr/2025 00:31:13] "GET /api/dim_date HTTP/1.1" 200 -
+2025-04-19 00:31:42,578 - INFO - API: /api/dim_exchange | Records Retrieved: 107 | Execution Time: 0.0047 seconds
+2025-04-19 00:31:42,581 - INFO - 172.18.0.1 - - [19/Apr/2025 00:31:42] "GET /api/dim_exchange HTTP/1.1" 200 -
+2025-04-19 00:32:02,297 - INFO - API: /api/dim_bond | Records Retrieved: 1 | Execution Time: 0.0017 seconds
+2025-04-19 00:32:02,299 - INFO - 172.18.0.1 - - [19/Apr/2025 00:32:02] "GET /api/dim_bond HTTP/1.1" 200 -
+2025-04-19 00:34:36,223 - INFO - Ticker: AAPL | Records Retrieved: 24 | Execution Time: 0.5841 seconds
+2025-04-19 00:34:36,227 - INFO - 172.18.0.1 - - [19/Apr/2025 00:34:36] "GET /api/ml-model/stock?ticker=AAPL HTTP/1.1" 200 -
+2025-04-19 00:36:05,405 - INFO - API: /api/ml-model | Country: US | Records: 100 | Execution Time: 0.4189 seconds
+2025-04-19 00:36:05,409 - INFO - 172.18.0.1 - - [19/Apr/2025 00:36:05] "GET /api/ml-model?country=US&days=60 HTTP/1.1" 200 -
+2025-04-19 01:55:22,536 - INFO - API: /api/ml-model | Country: US | Records: 100 | Execution Time: 1.0856 seconds
+2025-04-19 01:55:22,557 - INFO - 172.18.0.1 - - [19/Apr/2025 01:55:22] "GET /api/ml-model?country=US&days=60 HTTP/1.1" 200 -
+2025-04-19 01:55:31,605 - INFO - 172.18.0.1 - - [19/Apr/2025 01:55:31] "[33mGET /api/dim_index HTTP/1.1[0m" 404 -
+2025-04-19 01:59:40,412 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-04-19 01:59:40,413 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-19 01:59:49,222 - INFO - API: /api/dim_date | Records Retrieved: 100 | Execution Time: 0.0826 seconds
+2025-04-19 01:59:49,235 - INFO - 172.18.0.1 - - [19/Apr/2025 01:59:49] "GET /api/dim_date HTTP/1.1" 200 -
+2025-04-19 01:59:52,657 - INFO - API: /api/dim_bond | Records Retrieved: 1 | Execution Time: 0.0092 seconds
+2025-04-19 01:59:52,661 - INFO - 172.18.0.1 - - [19/Apr/2025 01:59:52] "GET /api/dim_bond HTTP/1.1" 200 -
+2025-04-19 01:59:56,341 - INFO - 172.18.0.1 - - [19/Apr/2025 01:59:56] "[33mGET /api/dim_index HTTP/1.1[0m" 404 -
+2025-04-19 02:00:45,403 - INFO - 172.18.0.1 - - [19/Apr/2025 02:00:45] "[33mGET /api/index_data HTTP/1.1[0m" 404 -
+2025-04-19 02:01:40,690 - INFO - 172.18.0.1 - - [19/Apr/2025 02:01:40] "[33mGET /api/index_data HTTP/1.1[0m" 404 -
+2025-04-19 02:06:15,763 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-04-19 02:06:15,764 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-19 02:06:21,138 - INFO - API: /api/dim_bond | Records Retrieved: 1 | Execution Time: 0.0390 seconds
+2025-04-19 02:06:21,141 - INFO - 172.18.0.1 - - [19/Apr/2025 02:06:21] "GET /api/dim_bond HTTP/1.1" 200 -
+2025-04-19 02:06:30,514 - ERROR - Exception on /api/index_data [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 684, in get_index_data
+    FactIndexMetrics.date,
+    ^^^^^^^^^^^^^^^^
+NameError: name 'FactIndexMetrics' is not defined. Did you mean: 'FactMarketMetrics'?
+2025-04-19 02:06:30,537 - INFO - 172.18.0.1 - - [19/Apr/2025 02:06:30] "[35m[1mGET /api/index_data HTTP/1.1[0m" 500 -
+2025-04-19 02:09:16,922 - ERROR - Exception on /api/index_data [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 684, in get_index_data
+    FactIndexMetrics.date,
+    ^^^^^^^^^^^^^^^^
+NameError: name 'FactIndexMetrics' is not defined. Did you mean: 'FactMarketMetrics'?
+2025-04-19 02:09:16,937 - INFO - 172.18.0.1 - - [19/Apr/2025 02:09:16] "[35m[1mGET /api/index_data HTTP/1.1[0m" 500 -
+2025-04-19 02:09:18,433 - ERROR - Exception on /api/index_data [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 684, in get_index_data
+    FactIndexMetrics.date,
+    ^^^^^^^^^^^^^^^^
+NameError: name 'FactIndexMetrics' is not defined. Did you mean: 'FactMarketMetrics'?
+2025-04-19 02:09:18,441 - INFO - 172.18.0.1 - - [19/Apr/2025 02:09:18] "[35m[1mGET /api/index_data HTTP/1.1[0m" 500 -
+2025-04-19 02:09:58,618 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-04-19 02:09:58,620 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-19 02:10:04,837 - ERROR - Exception on /api/index_data [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 684, in get_index_data
+    FactMarketMetrics.date,
+    ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'FactMarketMetrics' has no attribute 'date'
+2025-04-19 02:10:04,845 - INFO - 172.18.0.1 - - [19/Apr/2025 02:10:04] "[35m[1mGET /api/index_data HTTP/1.1[0m" 500 -
+2025-04-19 02:13:50,734 - INFO - API: /api/dim_bond | Records Retrieved: 1 | Execution Time: 0.0770 seconds
+2025-04-19 02:13:50,740 - INFO - 172.18.0.1 - - [19/Apr/2025 02:13:50] "GET /api/dim_bond HTTP/1.1" 200 -
+2025-04-19 02:13:59,426 - ERROR - Exception on /api/index_data [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 684, in get_index_data
+    FactMarketMetrics.date,
+    ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'FactMarketMetrics' has no attribute 'date'
+2025-04-19 02:13:59,429 - INFO - 172.18.0.1 - - [19/Apr/2025 02:13:59] "[35m[1mGET /api/index_data HTTP/1.1[0m" 500 -
+2025-04-19 02:20:42,089 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-04-19 02:20:42,090 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-19 02:20:51,758 - INFO - API: /api/index_data | Records Retrieved: 81440 | Execution Time: 3.4700 seconds
+2025-04-19 02:20:52,191 - INFO - 172.18.0.1 - - [19/Apr/2025 02:20:52] "GET /api/index_data HTTP/1.1" 200 -

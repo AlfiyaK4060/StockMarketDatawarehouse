@@ -101,6 +101,23 @@ class FactMarketMetrics(db.Model):
 class DimBond(db.Model):
     __tablename__ = "dim_bond"
     sk_bond_id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100))
+    treasury_name = db.Column(db.String)
+
+class DimStock(db.Model):
+    __tablename__ = "dim_stock"
+    
+    sk_stock_id = db.Column(db.Integer, primary_key=True)
     symbol = db.Column(db.String(20))
+    name = db.Column(db.String(255))
+    currency = db.Column(db.String(10))
+
+class DimIndex(db.Model):
+    __tablename__ = "dim_index" 
+
+    sk_index_id = db.Column(db.Integer, primary_key=True)
+    symbol = db.Column(db.String)
+    name = db.Column(db.String)
+    currency = db.Column(db.String)
+    exchange = db.Column(db.String)
+
     # Add more fields as needed

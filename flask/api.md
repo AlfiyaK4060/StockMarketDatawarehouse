@@ -66,7 +66,7 @@ curl -X GET "http://localhost:5000/api/dim_commodity?days=60&to=2025-03-14&from=
 ### **4. GET `/api/dim_index`**
 #### **Request:**
 ```sh
-curl -X GET "http://localhost:5000/api/dim_index?days=60&to=2025-03-14&from=2025-01-13&country=US&ticker=S&P500" -H "Content-Type: application/json"
+curl -X GET "http://localhost:5001/api/dim_index?days=60&to=2025-03-14&from=2025-01-13&country=US&ticker=S&P500" -H "Content-Type: application/json"
 ```
 #### **Response:**
 ```json

@@ -9,7 +9,7 @@ import time
 import logging
 from datetime import datetime, timedelta
 from sqlalchemy.exc import SQLAlchemyError
-from models import db, DimDate, DimCompany, FactMarketMetrics, DimExchange, DimCommodity , DimBond
+from models import db, DimDate, DimCompany, FactMarketMetrics, DimExchange, DimCommodity, DimBond, DimStock, DimIndex
 import pytest
 from flask_cors import CORS
 
@@ -460,8 +460,7 @@ def get_ml_model_data():
             'metadata': {'execution_time_seconds': execution_time}
         }), 500
 
-# GET DIM BOND# filepath: /Users/harshsaw/Downloads/StockMarketDatawarehouse/flask/app/app.py
-# filepath: /Users/harshsaw/Downloads/StockMarketDatawarehouse/flask/app/app.py
+
 @app.route('/api/dim_bond', methods=['GET'])
 def get_dim_bond():
     start_time = time.time()
@@ -602,6 +601,146 @@ def get_single_stock_ml_data():
             "error": str(e),
             'metadata': {'execution_time_seconds': execution_time}
         }), 500
+
+@app.route('/api/dim_stock', methods=['GET'])
+def get_dim_stock():
+    start_time = time.time()
+    try:
+        # Retrieve the symbol query parameter
+        symbol = request.args.get('symbol')
+
+        # Construct the query to fetch DimStock and its related metrics from FactMarketMetrics
+        query = db.session.query(DimStock, FactMarketMetrics).join(
+            FactMarketMetrics, DimStock.sk_stock_id == FactMarketMetrics.fk_stock_id
+        )
+
+        # Apply filter if 'symbol' is provided
+        if symbol:
+            query = query.filter(DimStock.symbol == symbol)
+
+        # Limit the number of results
+        results = query.limit(100).all()
+        record_count = len(results)
+
+        # Format the results in a structured way
+        formatted_results = [
+            {
+                "symbol": stock.symbol,
+                "name": stock.name,
+                "currency": stock.currency,
+                "metrics": {
+                    "current_price": metrics.current_price,
+                    "change_percentage": metrics.change_percentage,
+                    "day_low": metrics.day_low,
+                    "day_high": metrics.day_high,
+                    "volume": metrics.volume,
+                    "market_cap": metrics.market_cap,
+                    "pe_ratio": metrics.pe,
+                    "eps": metrics.eps,
+                    # Add more metrics as needed
+                }
+            }
+            for stock, metrics in results
+        ]
+
+        # Calculate execution time
+        execution_time = time.time() - start_time
+        log_request("/api/dim_stock", record_count, execution_time)
+
+        # Return the formatted response
+        return jsonify({
+            "data": formatted_results,
+            "metadata": {
+                "record_count": record_count,
+                "execution_time_seconds": round(execution_time, 4)
+            }
+        })
+
+    except SQLAlchemyError as e:
+        execution_time = time.time() - start_time
+        logging.error(f"ERROR: /api/dim_stock | Exception: {e} | Execution Time: {execution_time:.4f} seconds")
+        return jsonify({
+            "error": str(e),
+            "metadata": {"execution_time_seconds": round(execution_time, 4)}
+        }), 500
+
+@app.route("/api/index_data", methods=["GET"])
+def get_index_data():
+    start_time = time.time()
+    try:
+        # Get query parameters
+        ticker = request.args.get("ticker")
+        country = request.args.get("country")
+        from_date = request.args.get("from")  # Expected format: YYYY-MM-DD
+        to_date = request.args.get("to")
+        days = request.args.get("days", type=int)
+
+        # Build query with necessary joins
+        query = db.session.query(
+            DimIndex.symbol,
+            DimIndex.name,
+            DimIndex.currency,
+            DimIndex.exchange,
+            DimDate.datetime.label("date"),
+            FactMarketMetrics.current_price.label("close_price"),
+            FactMarketMetrics.volume
+        ).join(
+            FactMarketMetrics, DimIndex.sk_index_id == FactMarketMetrics.fk_index_id
+        ).join(
+            DimDate, DimDate.sk_date_id == FactMarketMetrics.fk_date_id
+        )
+
+        # Apply filters
+        if ticker:
+            query = query.filter(DimIndex.symbol == ticker)
+        if country:
+            query = query.filter(DimIndex.exchange.ilike(f"%{country}%"))
+        if from_date:
+            query = query.filter(DimDate.datetime >= from_date)
+        if to_date:
+            query = query.filter(DimDate.datetime <= to_date)
+        if days:
+            query = query.order_by(DimDate.datetime.desc()).limit(days)
+        else:
+            query = query.order_by(DimDate.datetime.asc())
+
+        # Execute and format results
+        results = query.all()
+        record_count = len(results)
+
+        formatted = [
+            {
+                "symbol": r.symbol,
+                "name": r.name,
+                "currency": r.currency,
+                "exchange": r.exchange,
+                "date": r.date.strftime("%Y-%m-%d %H:%M:%S") if r.date else None,
+                "close_price": float(r.close_price) if r.close_price is not None else None,
+                "volume": r.volume
+            }
+            for r in results
+        ]
+
+        execution_time = time.time() - start_time
+        log_request("/api/index_data", record_count, execution_time)
+
+        return jsonify({
+            "data": formatted,
+            "metadata": {
+                "record_count": record_count,
+                "execution_time_seconds": round(execution_time, 4)
+            }
+        })
+
+    except SQLAlchemyError as e:
+        execution_time = time.time() - start_time
+        logging.error(f"ERROR: /api/index_data | Exception: {e} | Execution Time: {execution_time:.4f} seconds")
+        return jsonify({
+            "error": str(e),
+            "metadata": {"execution_time_seconds": round(execution_time, 4)}
+        }), 500
+
+
 
 # Run the app
 if __name__ == "__main__":
