@@ -42,7 +42,7 @@ const App = () => {
     },
     {
       name: "Retrieve Stock Dimension Data",
-      url: "/api/dim_company?ticker=AAPL",
+      url: "/api/dim_stock",
       description: "Returns metadata for individual stocks, enabling performance comparisons across exchanges. Includes ticker-based filtering, dates, and country parameters. Useful for organizing stock datasets. Record counts and time are logged."
     },
     {
@@ -55,11 +55,7 @@ const App = () => {
       url: "/api/dim_bond",
       description: "This endpoint provides access to bond market data. Supports bond trend analysis and fixed-income research. Complements other financial instruments in portfolio analytics. Logs track records fetched and response duration."
     },
-    {
-      name: "Database Schema",
-      url: "/schema",
-      description: "Returns the database schema with table and column information. Useful for understanding the data structure and relationships between different entities in the system."
-    },
+  
     {
       name: "Database Tables",
       url: "/api/tables",

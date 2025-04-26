@@ -1,3 +1,4 @@
+
 # **Stock Market API Documentation**
 
 ## **Introduction**
@@ -7,7 +8,7 @@ This API provides market data for ML models, including stock, index, bond, commo
 
 ## **Base URL**
 ```
-http://localhost:5000
+http://localhost:5001
 ```
 If running in Docker, replace `localhost` with the container name, e.g., `flask_app`.
 
@@ -16,143 +17,111 @@ If running in Docker, replace `localhost` with the container name, e.g., `flask_
 ## **Endpoints**
 
 ### **1. GET `/api/dim_date`**
-#### **Description:**
 Retrieves all available dates from the `dim_date` table.
-#### **Request:**
-```sh
-curl -X GET "http://localhost:5000/api/dim_date" -H "Content-Type: application/json"
 ```
-#### **Response:**
-```json
-{
-  "data": [{"date": "2025-03-10", "datetime": "2025-03-10T00:00:00"}],
-  "metadata": {"record_count": 500, "execution_time_seconds": 0.35}
-}
+curl -X GET "http://localhost:5001/api/dim_date" -H "Content-Type: application/json"
 ```
----
 
 ### **2. GET `/api/dim_exchange`**
-#### **Description:**
 Retrieves exchange information.
-#### **Request:**
-```sh
-curl -X GET "http://localhost:5000/api/dim_exchange" -H "Content-Type: application/json"
 ```
-#### **Response:**
-```json
-{
-  "data": [{"exchange_name": "NASDAQ", "symbol": "NSDQ", "timezone": "UTC-5"}],
-  "metadata": {"record_count": 5, "execution_time_seconds": 0.02}
-}
+curl -X GET "http://localhost:5001/api/dim_exchange" -H "Content-Type: application/json"
 ```
----
 
 ### **3. GET `/api/dim_commodity`**
-#### **Description:**
-Fetches commodity data with filters.
-#### **Request:**
-```sh
-curl -X GET "http://localhost:5000/api/dim_commodity?days=60&to=2025-03-14&from=2025-01-13&country=US&ticker=GOLD" -H "Content-Type: application/json"
+Fetches commodity data.
 ```
-#### **Response:**
-```json
-{
-  "data": [{"symbol": "GOLD", "name": "Gold Futures", "currency": "USD", "exchange": "NYMEX"}],
-  "metadata": {"record_count": 10, "execution_time_seconds": 0.12}
-}
+curl -X GET "http://localhost:5001/api/dim_commodity" -H "Content-Type: application/json"
 ```
----
 
 ### **4. GET `/api/dim_index`**
-#### **Request:**
-```sh
-curl -X GET "http://localhost:5001/api/dim_index?days=60&to=2025-03-14&from=2025-01-13&country=US&ticker=S&P500" -H "Content-Type: application/json"
+Fetches index data by filters.
 ```
-#### **Response:**
-```json
-{
-  "data": [{"symbol": "S&P500", "name": "S&P 500 Index", "currency": "USD", "exchange": "NYSE"}],
-  "metadata": {"record_count": 5, "execution_time_seconds": 0.09}
-}
+curl -X GET "http://localhost:5001/api/dim_index?ticker=S&P500&country=US" -H "Content-Type: application/json"
 ```
----
 
 ### **5. GET `/api/ml-model`**
-#### **Description:**
 Retrieves market metrics for ML model training.
-#### **Request:**
-```sh
-curl -X GET "http://localhost:5000/api/ml-model?days=60&to=2025-03-14&from=2025-01-13&country=US" -H "Content-Type: application/json"
 ```
-#### **Response:**
-```json
-{
-  "from": "2025-01-13",
-  "to": "2025-03-14",
-  "country": "US",
-  "data": [{
-    "symbol": "AAPL",
-    "company_name": "Apple Inc.",
-    "sector": "Technology",
-    "industry": "Consumer Electronics",
-    "date": "2025-03-10",
-    "datetime": "2025-03-10T00:00:00",
-    "current_price": 345.12,
-    "change": 2.50,
-    "change_percentage": 1.2,
-    "volume": 450000,
-    "market_cap": 2500000000
-  }],
-  "metadata": {"record_count": 100, "execution_time_seconds": 0.35}
-}
+curl -X GET "http://localhost:5001/api/ml-model?days=60&country=US" -H "Content-Type: application/json"
 ```
+
+### **6. GET `/api/dim_company`**
+Fetches company data filtered by ticker.
+```
+curl -X GET "http://localhost:5001/api/dim_company?ticker=AAPL" -H "Content-Type: application/json"
+```
+
+### **7. GET `/api/dim_bond`**
+Retrieves available bonds.
+```
+curl -X GET "http://localhost:5001/api/dim_bond" -H "Content-Type: application/json"
+```
+
+### **8. GET `/api/dim_stock`**
+Fetches stock and metrics info.
+```
+curl -X GET "http://localhost:5001/api/dim_stock?symbol=AAPL" -H "Content-Type: application/json"
+```
+
+### **9. GET `/api/ml-model/stock`**
+Retrieves market metrics for a specific stock.
+```
+curl -X GET "http://localhost:5001/api/ml-model/stock?ticker=AAPL" -H "Content-Type: application/json"
+```
+
+### **10. GET `/api/index_data`**
+Fetches index data with filters.
+```
+curl -X GET "http://localhost:5001/api/index_data?ticker=S&P500&country=US" -H "Content-Type: application/json"
+```
+
+### **11. GET `/api/market`**
+Returns full market data for all companies.
+```
+curl -X GET "http://localhost:5001/api/market?country=US" -H "Content-Type: application/json"
+```
+
 ---
 
 ## **Logging**
-All API requests are logged to `api.log`. Logs include:
+Logs include:
 - API endpoint
 - Execution time
-- Number of records retrieved
+- Record count
 - Errors (if any)
 
 To view logs inside Docker:
-```sh
+```
 docker exec -it <container_id> cat /app/logs/api.log
 ```
 To view real-time logs:
-```sh
+```
 docker logs -f <container_id>
 ```
 
 ---
 
 ## **Deployment**
-### **Running in Docker**
-1. **Build and Run the Container**
-```sh
+Run with Docker:
+```
 docker-compose up --build
 ```
-2. **Access the API** at `http://localhost:5000`.
-
-### **Check Running Containers**
-```sh
-docker ps
+Stop containers:
 ```
-
-### **Stop and Remove Containers**
-```sh
 docker-compose down
 ```
 
 ---
+
 ## **Future Enhancements**
-✅ Implement **Redis caching** for faster responses.
-✅ Add **authentication** for secure API access.
-✅ Support **WebSockets for real-time updates**.
+- ✅ Redis caching
+- ✅ Authentication
+- ✅ WebSocket support
 
 ---
+
 ## **Contributors**
-- **Developer:** Alfiya, Anshika, Rajdeep, Gursheen, Kritika
+Alfiya, Anshika, Rajdeep, Gursheen, Kritika
 
-For any issues, contact: `support@stockapi.com`
-
+Contact: `support@stockapi.com`

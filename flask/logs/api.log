@@ -1012,3 +1012,109 @@ AttributeError: type object 'FactMarketMetrics' has no attribute 'date'
 2025-04-19 02:20:42,090 - INFO - [33mPress CTRL+C to quit[0m
 2025-04-19 02:20:51,758 - INFO - API: /api/index_data | Records Retrieved: 81440 | Execution Time: 3.4700 seconds
 2025-04-19 02:20:52,191 - INFO - 172.18.0.1 - - [19/Apr/2025 02:20:52] "GET /api/index_data HTTP/1.1" 200 -
+2025-04-25 21:14:10,560 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-04-25 21:14:10,561 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-25 21:15:09,789 - INFO - API: /api/dim_bond | Records Retrieved: 1 | Execution Time: 0.0490 seconds
+2025-04-25 21:15:09,795 - INFO - 172.18.0.1 - - [25/Apr/2025 21:15:09] "GET /api/dim_bond HTTP/1.1" 200 -
+2025-04-25 21:26:54,322 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-04-25 21:26:54,324 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-25 21:27:07,463 - INFO - API: /api/dim_bond | Records Retrieved: 1 | Execution Time: 0.1087 seconds
+2025-04-25 21:27:07,467 - INFO - 172.18.0.1 - - [25/Apr/2025 21:27:07] "GET /api/dim_bond HTTP/1.1" 200 -
+2025-04-25 21:29:18,127 - INFO - 172.18.0.1 - - [25/Apr/2025 21:29:18] "GET /api/market HTTP/1.1" 200 -
+2025-04-25 21:29:24,659 - INFO - Ticker: AAPL | Records Retrieved: 1 | Execution Time: 0.0836 seconds
+2025-04-25 21:29:24,661 - INFO - 172.18.0.1 - - [25/Apr/2025 21:29:24] "GET /api/ml-model/stock?ticker=AAPL HTTP/1.1" 200 -
+2025-04-25 21:29:35,365 - INFO - API: /api/dim_date | Records Retrieved: 100 | Execution Time: 0.0112 seconds
+2025-04-25 21:29:35,368 - INFO - 172.18.0.1 - - [25/Apr/2025 21:29:35] "GET /api/dim_date HTTP/1.1" 200 -
+2025-04-25 21:29:39,538 - INFO - API: /api/dim_exchange | Records Retrieved: 107 | Execution Time: 0.0079 seconds
+2025-04-25 21:29:39,541 - INFO - 172.18.0.1 - - [25/Apr/2025 21:29:39] "GET /api/dim_exchange HTTP/1.1" 200 -
+2025-04-25 21:30:01,489 - INFO - API: /api/dim_bond | Records Retrieved: 1 | Execution Time: 0.0022 seconds
+2025-04-25 21:30:01,491 - INFO - 172.18.0.1 - - [25/Apr/2025 21:30:01] "GET /api/dim_bond HTTP/1.1" 200 -
+2025-04-25 21:30:07,032 - INFO - 172.18.0.1 - - [25/Apr/2025 21:30:07] "GET /schema HTTP/1.1" 200 -
+2025-04-25 21:30:11,223 - INFO - 172.18.0.1 - - [25/Apr/2025 21:30:11] "GET /api/tables HTTP/1.1" 200 -
+2025-04-25 22:15:21,124 - INFO - 172.18.0.1 - - [25/Apr/2025 22:15:21] "GET /api/market HTTP/1.1" 200 -
+2025-04-25 22:16:31,310 - INFO - Ticker: AAPL | Records Retrieved: 1 | Execution Time: 0.4295 seconds
+2025-04-25 22:16:31,311 - INFO - 172.18.0.1 - - [25/Apr/2025 22:16:31] "GET /api/ml-model/stock?ticker=AAPL HTTP/1.1" 200 -
+2025-04-25 22:16:56,879 - INFO - API: /api/dim_date | Records Retrieved: 100 | Execution Time: 0.0030 seconds
+2025-04-25 22:16:56,882 - INFO - 172.18.0.1 - - [25/Apr/2025 22:16:56] "GET /api/dim_date HTTP/1.1" 200 -
+2025-04-25 22:17:16,485 - INFO - API: /api/dim_exchange | Records Retrieved: 107 | Execution Time: 0.0036 seconds
+2025-04-25 22:17:16,488 - INFO - 172.18.0.1 - - [25/Apr/2025 22:17:16] "GET /api/dim_exchange HTTP/1.1" 200 -
+2025-04-25 22:17:44,994 - INFO - API: /api/dim_commodity | Records Retrieved: 40 | Execution Time: 0.0054 seconds
+2025-04-25 22:17:44,997 - INFO - 172.18.0.1 - - [25/Apr/2025 22:17:44] "GET /api/dim_commodity HTTP/1.1" 200 -
+2025-04-25 22:18:11,218 - INFO - API: /api/ml-model | Country: US | Records: 100 | Execution Time: 0.3226 seconds
+2025-04-25 22:18:11,221 - INFO - 172.18.0.1 - - [25/Apr/2025 22:18:11] "GET /api/ml-model?country=US&days=60 HTTP/1.1" 200 -
+2025-04-25 22:18:36,664 - INFO - API: /api/dim_company | Records Retrieved: 1 | Execution Time: 0.0128 seconds
+2025-04-25 22:18:36,665 - INFO - 172.18.0.1 - - [25/Apr/2025 22:18:36] "GET /api/dim_company?ticker=AAPL HTTP/1.1" 200 -
+2025-04-25 22:19:09,244 - INFO - API: /api/dim_bond | Records Retrieved: 1 | Execution Time: 0.0013 seconds
+2025-04-25 22:19:09,246 - INFO - 172.18.0.1 - - [25/Apr/2025 22:19:09] "GET /api/dim_bond HTTP/1.1" 200 -
+2025-04-25 22:19:40,332 - INFO - 172.18.0.1 - - [25/Apr/2025 22:19:40] "GET /api/tables HTTP/1.1" 200 -
+2025-04-25 22:50:04,169 - INFO - 172.18.0.1 - - [25/Apr/2025 22:50:04] "[33mGET /api/dim_index HTTP/1.1[0m" 404 -
+2025-04-25 22:50:10,025 - INFO - API: /api/dim_exchange | Records Retrieved: 107 | Execution Time: 0.0040 seconds
+2025-04-25 22:50:10,027 - INFO - 172.18.0.1 - - [25/Apr/2025 22:50:10] "GET /api/dim_exchange HTTP/1.1" 200 -
+2025-04-25 22:51:06,687 - INFO - 172.18.0.1 - - [25/Apr/2025 22:51:06] "GET /api/market HTTP/1.1" 200 -
+2025-04-25 22:51:51,356 - INFO - Ticker: AAPL | Records Retrieved: 1 | Execution Time: 0.4181 seconds
+2025-04-25 22:51:51,358 - INFO - 172.18.0.1 - - [25/Apr/2025 22:51:51] "GET /api/ml-model/stock?ticker=AAPL HTTP/1.1" 200 -
+2025-04-25 22:52:18,779 - INFO - API: /api/dim_date | Records Retrieved: 100 | Execution Time: 0.0032 seconds
+2025-04-25 22:52:18,781 - INFO - 172.18.0.1 - - [25/Apr/2025 22:52:18] "GET /api/dim_date HTTP/1.1" 200 -
+2025-04-25 22:52:40,255 - INFO - API: /api/dim_exchange | Records Retrieved: 107 | Execution Time: 0.0025 seconds
+2025-04-25 22:52:40,258 - INFO - 172.18.0.1 - - [25/Apr/2025 22:52:40] "GET /api/dim_exchange HTTP/1.1" 200 -
+2025-04-25 22:53:04,823 - INFO - API: /api/dim_commodity | Records Retrieved: 40 | Execution Time: 0.0023 seconds
+2025-04-25 22:53:04,825 - INFO - 172.18.0.1 - - [25/Apr/2025 22:53:04] "GET /api/dim_commodity HTTP/1.1" 200 -
+2025-04-25 23:04:11,974 - INFO - 172.18.0.1 - - [25/Apr/2025 23:04:11] "[33mGET /api/dim_commodit HTTP/1.1[0m" 404 -
+2025-04-25 23:04:18,447 - INFO - API: /api/dim_commodity | Records Retrieved: 40 | Execution Time: 0.0044 seconds
+2025-04-25 23:04:18,452 - INFO - 172.18.0.1 - - [25/Apr/2025 23:04:18] "GET /api/dim_commodity HTTP/1.1" 200 -
+2025-04-25 23:29:24,455 - INFO - 172.18.0.1 - - [25/Apr/2025 23:29:24] "GET /api/market HTTP/1.1" 200 -
+2025-04-25 23:29:30,769 - INFO - 172.18.0.1 - - [25/Apr/2025 23:29:30] "GET /api/market HTTP/1.1" 200 -
+2025-04-25 23:29:56,254 - INFO - Ticker: AAPL | Records Retrieved: 1 | Execution Time: 0.1354 seconds
+2025-04-25 23:29:56,256 - INFO - 172.18.0.1 - - [25/Apr/2025 23:29:56] "GET /api/ml-model/stock?ticker=AAPL HTTP/1.1" 200 -
+2025-04-25 23:30:15,141 - INFO - API: /api/dim_date | Records Retrieved: 100 | Execution Time: 0.0054 seconds
+2025-04-25 23:30:15,146 - INFO - 172.18.0.1 - - [25/Apr/2025 23:30:15] "GET /api/dim_date HTTP/1.1" 200 -
+2025-04-25 23:30:31,648 - INFO - API: /api/dim_exchange | Records Retrieved: 107 | Execution Time: 0.0045 seconds
+2025-04-25 23:30:31,653 - INFO - 172.18.0.1 - - [25/Apr/2025 23:30:31] "GET /api/dim_exchange HTTP/1.1" 200 -
+2025-04-25 23:30:48,587 - INFO - API: /api/dim_commodity | Records Retrieved: 40 | Execution Time: 0.0026 seconds
+2025-04-25 23:30:48,590 - INFO - 172.18.0.1 - - [25/Apr/2025 23:30:48] "GET /api/dim_commodity HTTP/1.1" 200 -
+2025-04-25 23:31:14,635 - INFO - API: /api/ml-model | Country: US | Records: 100 | Execution Time: 1.1852 seconds
+2025-04-25 23:31:14,641 - INFO - 172.18.0.1 - - [25/Apr/2025 23:31:14] "GET /api/ml-model?country=US&days=60 HTTP/1.1" 200 -
+2025-04-25 23:31:28,676 - INFO - API: /api/dim_company | Records Retrieved: 1 | Execution Time: 0.0194 seconds
+2025-04-25 23:31:28,679 - INFO - 172.18.0.1 - - [25/Apr/2025 23:31:28] "GET /api/dim_company?ticker=AAPL HTTP/1.1" 200 -
+2025-04-25 23:31:40,584 - INFO - 172.18.0.1 - - [25/Apr/2025 23:31:40] "GET /api/tables HTTP/1.1" 200 -
+2025-04-25 23:40:02,657 - INFO - 172.18.0.1 - - [25/Apr/2025 23:40:02] "[33mGET /api/table HTTP/1.1[0m" 404 -
+2025-04-25 23:43:01,761 - INFO - API: /api/dim_date | Records Retrieved: 100 | Execution Time: 0.0069 seconds
+2025-04-25 23:43:01,766 - INFO - 172.18.0.1 - - [25/Apr/2025 23:43:01] "GET /api/dim_date HTTP/1.1" 200 -
+2025-04-26 00:42:56,782 - INFO - 172.18.0.1 - - [26/Apr/2025 00:42:56] "GET /api/market HTTP/1.1" 200 -
+2025-04-26 00:47:24,694 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2025-04-26 00:47:24,695 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-26 00:48:40,025 - INFO - API: /api/dim_exchange | Records Retrieved: 107 | Execution Time: 0.0473 seconds
+2025-04-26 00:48:40,028 - INFO - 172.18.0.1 - - [26/Apr/2025 00:48:40] "GET /api/dim_exchange HTTP/1.1" 200 -
+2025-04-26 00:48:56,369 - INFO - API: /api/dim_bond | Records Retrieved: 1 | Execution Time: 0.0065 seconds
+2025-04-26 00:48:56,371 - INFO - 172.18.0.1 - - [26/Apr/2025 00:48:56] "GET /api/dim_bond HTTP/1.1" 200 -
+2025-04-26 00:49:08,887 - INFO - API: /api/dim_date | Records Retrieved: 100 | Execution Time: 0.0182 seconds
+2025-04-26 00:49:08,893 - INFO - 172.18.0.1 - - [26/Apr/2025 00:49:08] "GET /api/dim_date HTTP/1.1" 200 -
+2025-04-26 00:49:29,755 - INFO - API: /api/dim_stock | Records Retrieved: 100 | Execution Time: 0.0468 seconds
+2025-04-26 00:49:29,762 - INFO - 172.18.0.1 - - [26/Apr/2025 00:49:29] "GET /api/dim_stock HTTP/1.1" 200 -
+2025-04-26 00:49:42,015 - INFO - API: /api/dim_commodity | Records Retrieved: 40 | Execution Time: 0.0029 seconds
+2025-04-26 00:49:42,017 - INFO - 172.18.0.1 - - [26/Apr/2025 00:49:42] "GET /api/dim_commodity HTTP/1.1" 200 -
+2025-04-26 00:50:32,768 - INFO - API: /api/ml-model | Country: US | Records: 100 | Execution Time: 1.2644 seconds
+2025-04-26 00:50:32,772 - INFO - 172.18.0.1 - - [26/Apr/2025 00:50:32] "GET /api/ml-model?days=60&to=2025-03-14&from=2025-01-13&country=US HTTP/1.1" 200 -
+2025-04-26 00:55:18,193 - INFO - 172.18.0.1 - - [26/Apr/2025 00:55:18] "GET /api/market HTTP/1.1" 200 -
+2025-04-26 00:55:24,720 - INFO - Ticker: AAPL | Records Retrieved: 1 | Execution Time: 0.0855 seconds
+2025-04-26 00:55:24,722 - INFO - 172.18.0.1 - - [26/Apr/2025 00:55:24] "GET /api/ml-model/stock?ticker=AAPL HTTP/1.1" 200 -
+2025-04-26 00:55:32,951 - INFO - API: /api/dim_date | Records Retrieved: 100 | Execution Time: 0.0044 seconds
+2025-04-26 00:55:32,954 - INFO - 172.18.0.1 - - [26/Apr/2025 00:55:32] "GET /api/dim_date HTTP/1.1" 200 -
+2025-04-26 00:55:38,706 - INFO - API: /api/dim_exchange | Records Retrieved: 107 | Execution Time: 0.0040 seconds
+2025-04-26 00:55:38,709 - INFO - 172.18.0.1 - - [26/Apr/2025 00:55:38] "GET /api/dim_exchange HTTP/1.1" 200 -
+2025-04-26 00:55:46,682 - INFO - 172.18.0.1 - - [26/Apr/2025 00:55:46] "GET /api/tables HTTP/1.1" 200 -
+2025-04-26 00:55:52,066 - INFO - API: /api/dim_bond | Records Retrieved: 1 | Execution Time: 0.0024 seconds
+2025-04-26 00:55:52,076 - INFO - 172.18.0.1 - - [26/Apr/2025 00:55:52] "GET /api/dim_bond HTTP/1.1" 200 -
+2025-04-26 00:55:57,214 - INFO - API: /api/dim_company | Records Retrieved: 1 | Execution Time: 0.0117 seconds
+2025-04-26 00:55:57,216 - INFO - 172.18.0.1 - - [26/Apr/2025 00:55:57] "GET /api/dim_company?ticker=AAPL HTTP/1.1" 200 -
+2025-04-26 00:56:02,112 - INFO - API: /api/ml-model | Country: US | Records: 100 | Execution Time: 0.4008 seconds
+2025-04-26 00:56:02,118 - INFO - 172.18.0.1 - - [26/Apr/2025 00:56:02] "GET /api/ml-model?country=US&days=60 HTTP/1.1" 200 -
